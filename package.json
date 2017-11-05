@@ -1,0 +1,20 @@
+{
+  "name": "news-messenger-bot",
+  "version": "1.0.0",
+  "description": "CS 160 final project - a Facebook messenger that sends news to subscribers. This addresses the theme of \"Bursting Echo Chambers in Social Media.\"",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dkchoi21/news-messenger-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dkchoi21/news-messenger-bot/issues"
+  },
+  "homepage": "https://github.com/dkchoi21/news-messenger-bot#readme"
+}
