@@ -39,6 +39,10 @@ app.post('/webhook', (req, res) => {
 
 });
 
+app.get('/', function(req, res) {
+  res.send('hello you butt faces')
+})
+
 
 // Adds support for GET requests to our webhook
 app.get('/webhook', (req, res) => {
