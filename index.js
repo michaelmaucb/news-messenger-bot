@@ -20,6 +20,7 @@ app.post('/webhook', (req, res) => {
   if (body.object === 'page') {
 
     // Iterates over each entry - there may be multiple if batched
+    console.log('david choi is sexier than michael ma')
     body.entry.forEach(function(entry) {
 
       // Gets the message. entry.messaging is an array, but 
