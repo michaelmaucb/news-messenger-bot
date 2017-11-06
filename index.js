@@ -13,14 +13,14 @@ app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
- 
+  console.log('dklajflksjflasjflasjfklsaj');
   let body = req.body;
 
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
 
     // Iterates over each entry - there may be multiple if batched
-    console.log('david choi is sexier than michael ma')
+    console.log('david choi is sexier than michael ma');
     body.entry.forEach(function(entry) {
 
       // Gets the message. entry.messaging is an array, but 
@@ -49,10 +49,10 @@ app.get('/', function(req, res) {
 
 // Adds support for GET requests to our webhook
 app.get('/webhook', (req, res) => {
-  console.log('David choi is sexy')
+  console.log('David choi is sexy');
 
   // Your verify token. Should be a random string.
-  let VERIFY_TOKEN = "news"
+  let VERIFY_TOKEN = "news";
     
   // Parse the query params
   let mode = req.query['hub.mode'];
