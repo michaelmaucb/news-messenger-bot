@@ -48,6 +48,7 @@ app.get('/', function(req, res) {
 
 // Adds support for GET requests to our webhook
 app.get('/webhook', (req, res) => {
+  console.log('David choi is sexy')
 
   // Your verify token. Should be a random string.
   let VERIFY_TOKEN = "news"
