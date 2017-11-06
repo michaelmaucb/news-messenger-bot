@@ -16,14 +16,8 @@ const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const 
   // request = require('request'),
   express = require('express'),
-
-  bodyParser = require('body-parser'),
-  app = express().use(bodyParser.json()), // creates express http server
-  PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
-
   body_parser = require('body-parser'),
   app = express().use(body_parser.json()); // creates express http server
-
 
 
 
@@ -61,14 +55,7 @@ app.post('/webhook', (req, res) => {
 
 // Accepts GET requests at the /webhook endpoint
 app.get('/webhook', (req, res) => {
-
-
-  // Your verify token. Should be a random string.
-  let VERIFY_TOKEN = "news";
-    
-  // Parse the query params
-
-
+  
   /** UPDATE YOUR VERIFY TOKEN **/
   const VERIFY_TOKEN = "news";
   
