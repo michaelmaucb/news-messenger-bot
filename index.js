@@ -24,6 +24,10 @@ app.post('/webhook', (req, res) => {
       // will only ever contain one message, so we get index 0
       let webhookEvent = entry.messaging[0];
       console.log(webhookEvent);
+
+      // Get the sender PSID
+      let sender_psid = webhook_event.sender.id;
+      console.log('Sender PSID: ' + sender_psid);
     });
 
     // Returns a '200 OK' response to all requests
@@ -56,6 +60,7 @@ app.get('/webhook', (req, res) => {
       // Responds with the challenge token from the request
       console.log('WEBHOOK_VERIFIED');
       res.status(200).send(challenge);
+
     
     } else {
       // Responds with '403 Forbidden' if verify tokens do not match
@@ -63,6 +68,7 @@ app.get('/webhook', (req, res) => {
     }
   }
 });
+
 
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
