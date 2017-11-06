@@ -11,9 +11,11 @@ const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
+console.log('dklajflksjflasjflasjfklsaj');
+
+
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
-  console.log('dklajflksjflasjflasjfklsaj');
   let body = req.body;
 
   // Checks this is an event from a page subscription
