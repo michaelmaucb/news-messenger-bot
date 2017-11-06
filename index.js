@@ -24,9 +24,9 @@ const
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
-app.post('/webhook/', (req, res) => {  
+app.post('/webhook', (req, res) => {  
   console.log("hello world")
-
+/*
   // Parse the request body from the POST
   let body = req.body;
 
@@ -53,11 +53,11 @@ app.post('/webhook/', (req, res) => {
     // Return a '404 Not Found' if event is not from a page subscription
     res.sendStatus(404);
   }
-
+*/
 });
 
 // Accepts GET requests at the /webhook endpoint
-app.get('/webhook/', (req, res) => {
+app.get('/webhook', (req, res) => {
   
   /** UPDATE YOUR VERIFY TOKEN **/
   const VERIFY_TOKEN = "news";
