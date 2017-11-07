@@ -1,7 +1,8 @@
 'use strict';
 
 // Imports dependencies and set up http server
-const 
+const
+  request = require('request'),
   express = require('express'),
   bodyParser = require('body-parser'),
   app = express().use(bodyParser.json()); // creates express http server
