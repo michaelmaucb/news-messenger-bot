@@ -94,10 +94,10 @@ function setupGreetingText(res){
       "greeting":[
           {
           "locale":"default",
-          "text":"Greeting text for default local !"
+          "text":"Welcome to the News Flash Bot!"
           }, {
           "locale":"en_US",
-          "text":"Greeting text for en_US local !"
+          "text":"Welcome to the News Flash Bot!"
           }
       ]};
   request({
@@ -145,7 +145,7 @@ function setupPersistentMenu(res){
               {
               "type":"web_url",
               "title":"Visit website ",
-              "url":"http://www.techiediaries.com",
+              "url":"http://www.facebook.com",
               "webview_height_ratio":"full"
               }
           ]
