@@ -41,6 +41,19 @@ app.post('/webhook', (req, res) => {
                       "text": msg
                     }
                     callSendAPI(event.sender.id, response);
+
+                    let newResponse;
+                    newResponse = {
+                      "quick_replies":[
+                      {
+                        "content_type":"text",
+                        "title":"Press news",
+                        "payload":"news"
+                      }
+                      ]
+                    }
+                    callSendAPI(event.sender.id, newResponse);
+
       
             } 
           }
@@ -378,39 +391,11 @@ function handlePostback(sender_psid, received_postback) {
     // Set the response based on the postback payload
   if (payload === newsTopics[0]) {
     response = {
-       "attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"generic",
-        "elements":[
-           {
-            "title":"Welcome to Peter\'s Hats",
-            "image_url":"https://petersfancybrownhats.com/company_image.png",
-            "subtitle":"We\'ve got the right hat for everyone.",
-            "default_action": {
-              "type": "web_url",
-              "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
-              "messenger_extensions": true,
-              "webview_height_ratio": "tall",
-              "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-            },
-            "buttons":[
-              {
-                "type":"web_url",
-                "url":"https://petersfancybrownhats.com",
-                "title":"View Website"
-              },{
-                "type":"postback",
-                "title":"Start Chatting",
-                "payload":"DEVELOPER_DEFINED_PAYLOAD"
-              }
-            ]
-          }
-        ]
-      }
-    }
+
+
 
     }
+    console.log("Gun control payload entered");
   }
 
 
