@@ -94,7 +94,7 @@ function setupGreetingText(res){
       "greeting":[
           {
           "locale":"default",
-          "text":"Welcome to the News Flash Bot!"
+          "text":"Hello {{user_first_name}}!"
           }, {
           "locale":"en_US",
           "text":"Welcome to the News Flash Bot!"
