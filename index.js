@@ -23,19 +23,24 @@ app.post('/webhook', (req, res) => {
     // Iterates over each entry - there may be multiple if batched
     body.entry.forEach(function(entry) {
 
-    entry.messaging.forEach(function(event) {
-      if (event.message) {
-        //receivedMessage(event);
+      if (entry.messaging) {
+        entry.messaging.forEach(function(event) {
+          if (event.message) {
+            //receivedMessage(event);
+          } else {
+            if(event.postback && event.postback.payload === USER_DEFINED_PAYLOAD )
+            {
+                    //present user with some greeting or call to action
+                    var msg = "Hi ,I'm a Bot ,and I was created to help you easily .... "
+                    console.log(msg)
+                    //sendMessage(event.sender.id,msg);      
+            } 
+          }
+        });
       } else {
-        if(event.postback && event.postback.payload === USER_DEFINED_PAYLOAD )
-        {
-                //present user with some greeting or call to action
-                var msg = "Hi ,I'm a Bot ,and I was created to help you easily .... "
-                console.log(msg)
-                //sendMessage(event.sender.id,msg);      
-        } 
+        console.log(entry)
+        console.log("david choi")
       }
-    });
 
       // // Gets the body of the webhook event
       // console.log(entry)
