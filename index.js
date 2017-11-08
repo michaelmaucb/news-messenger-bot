@@ -23,38 +23,52 @@ app.post('/webhook', (req, res) => {
     // Iterates over each entry - there may be multiple if batched
     body.entry.forEach(function(entry) {
 
-      // Gets the body of the webhook event
-      console.log(entry)
-      console.log("____________________")
-      console.log(entry.messaging)
-      console.log("____________________")
-      console.log(entry.messaging[0])
-
-      let webhook_event = entry.messaging[0];
-      console.log(webhook_event);
-
-      // Get the sender PSID
-      // console.log(entry)
-      // console.log(webhook_event.sender)
-
-      if (webhook_event.message) {
-        console.log(webhook_event)
-        if (webhook_event.message == 'TEST_MESSAGE') {
-          return
-        }
-        let sender_psid = webhook_event.sender.id;
-        console.log('Sender PSID: ' + sender_psid);
-
-        handleMessage(sender_psid, webhook_event.message);        
-      } else if (webhook_event.postback) {
-        handlePostback(sender_psid, webhook_event.postback);
+    entry.messaging.forEach(function(event) {
+      if (event.message) {
+        //receivedMessage(event);
       } else {
-        if(event.postback && event.postback.payload === USER_DEFINED_PAYLOAD ){
+        if(event.postback && event.postback.payload === USER_DEFINED_PAYLOAD )
+        {
                 //present user with some greeting or call to action
-          var msg = "Hi, I'm a News-Flash-Bot"
-          // handleMessage(sender_psid,msg);
+                var msg = "Hi ,I'm a Bot ,and I was created to help you easily .... "
+                console.log(msg)
+                //sendMessage(event.sender.id,msg);      
         } 
       }
+    });
+
+      // // Gets the body of the webhook event
+      // console.log(entry)
+      // console.log("____________________")
+      // console.log(entry.messaging)
+      // console.log("____________________")
+      // console.log(entry.messaging[0])
+
+      // let webhook_event = entry.messaging[0];
+      // console.log(webhook_event);
+
+      // // Get the sender PSID
+      // // console.log(entry)
+      // // console.log(webhook_event.sender)
+
+      // if (webhook_event.message) {
+      //   console.log(webhook_event)
+      //   if (webhook_event.message == 'TEST_MESSAGE') {
+      //     return
+      //   }
+      //   let sender_psid = webhook_event.sender.id;
+      //   console.log('Sender PSID: ' + sender_psid);
+
+      //   handleMessage(sender_psid, webhook_event.message);        
+      // } else if (webhook_event.postback) {
+      //   handlePostback(sender_psid, webhook_event.postback);
+      // } else {
+      //   if(event.postback && event.postback.payload === USER_DEFINED_PAYLOAD ){
+      //           //present user with some greeting or call to action
+      //     var msg = "Hi, I'm a News-Flash-Bot"
+      //     // handleMessage(sender_psid,msg);
+      //   } 
+      // }
 
     });
 
