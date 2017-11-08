@@ -394,7 +394,7 @@ function handlePostback(sender_psid, received_postback) {
 
   // Set the response based on the postback payload
     // Set the response based on the postback payload
-  if (payload === newsTopics[0]) {
+  if (payload == newsTopics[0]) {
     response = {
       "attachment":{
         "type":"template",
