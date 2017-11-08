@@ -333,46 +333,51 @@ function handleMessage(sender_psid, received_message) {
       }
 
 
-    //    response = {
-    //   "attachment": {
-    //     "type": "template",
-    //     "payload": {
-    //       "template_type": "generic",
-    //       "elements": [{
-    //         "title": "Which news topic would you like to explore?",
-    //         "subtitle": "Tap a news topic to get started.",
-    //         // "image_url": attachment_url,
-    //         "buttons": [
-    //           {
-    //             "type": "postback",
-    //             "title": newsTopics[0],
-    //             "payload": newsTopics[0],
-    //           },
-    //           {
-    //             "type": "postback",
-    //             "title": newsTopics[1],
-    //             "payload": newsTopics[1],
-    //           },
-    //           {
-    //             "type": "postback",
-    //             "title":  newsTopics[2],
-    //             "payload":  newsTopics[2],
-    //           },
-    //           {
-    //             "type": "postback",
-    //             "title": newsTopics[3],
-    //             "payload": newsTopics[3],
-    //           }
+  } else if (received_message.text == newsTopics[0]) {
+    response = {
+      "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"generic",
+          "elements":[
+            {
+              "title":"New study finds that 'waiting periods' for gun ownership could save a lot of lives",
+              "image_url":"https://images.dailykos.com/images/461804/story_image/GettyImages-634592362.jpg?1508265079",
+              "subtitle":"A new study by a few Harvard professors found that requiring a waiting period for someone to own a gun could reduce firearm homicides by 17 percent.",
+              "default_action": {
+                "type":"web_url",
+                "url": "https://www.dailykos.com/stories/2017/10/17/1707563/-New-study-finds-that-waiting-periods-for-gun-ownership-could-save-a-lot-of-lives"
+              }
+            }
 
-    //         ],
-    //       }]
-    //     }
-    //   }
+            // },
+            // {
+            //   "title":
 
-    // }
+            // },
+            // {
+
+            // },
+            // {
+
+            // },
+            // {
+
+            // }
 
 
-  } else if (received_message.attachments) {
+          ]
+        }
+      
+      }
+
+    }
+    console.log("Gun control payload entered");
+  }
+
+
+
+  else if (received_message.attachments) {
   
     // Gets the URL of the message attachment
     let attachment_url = received_message.attachments[0].payload.url;
