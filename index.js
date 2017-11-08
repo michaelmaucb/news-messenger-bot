@@ -25,6 +25,7 @@ app.post('/webhook', (req, res) => {
 
       if (entry.messaging) {
         entry.messaging.forEach(function(event) {
+          console.log("jay is cool")
           if (event.message) {
             console.log("david choi is cool")
             //receivedMessage(event);
