@@ -399,6 +399,7 @@ function handleMessage(sender_psid, received_message) {
 }
 
 
+
 function handlePostback(sender_psid, received_postback) {
   let response;
   let newsTopics = ["Gun Control", "White House", "Health Care"];
