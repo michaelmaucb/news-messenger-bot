@@ -51,8 +51,8 @@ app.post('/webhook', (req, res) => {
       } else {
         if(event.postback && event.postback.payload === USER_DEFINED_PAYLOAD ){
                 //present user with some greeting or call to action
-          var msg = "Hi ,I'm a News-Flash-Bot"
-          handleMessage(sender_psid,msg);
+          var msg = "Hi, I'm a News-Flash-Bot"
+          // handleMessage(sender_psid,msg);
         } 
       }
 
@@ -194,9 +194,11 @@ function setupPersistentMenu(res){
 
 function setupGetStartedButton(res){
   var messageData = {
-          "get_started":{
-              "payload":"getstarted"
+    "get_started":[
+      {
+          "payload":"USER_DEFINED_PAYLOAD"
           }
+      ]
   };
   // Start the request
   request({
