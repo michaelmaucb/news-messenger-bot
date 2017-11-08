@@ -288,35 +288,43 @@ function handleMessage(sender_psid, received_message) {
       "message": {
         "type": "template",
         "payload": {
-          "template_type": "generic",
-          "elements": [{
-            "title": "Which news topic would you like to explore?",
-            "subtitle": "Tap a news topic to get started.",
-            // "image_url": attachment_url,
-            "buttons": [
-              {
-                "type": "postback",
-                "title": newsTopics[0],
-                "payload": newsTopics[0],
-              },
-              {
-                "type": "postback",
-                "title": newsTopics[1],
-                "payload": newsTopics[1],
-              },
-              {
-                "type": "postback",
-                "title":  newsTopics[2],
-                "payload":  newsTopics[2],
-              },
-              {
-                "type": "postback",
-                "title": newsTopics[3],
-                "payload": newsTopics[3],
-              }
+          "template_type": "button",
+          "text": "News Topics",
+          "buttons":[
+          {"title": "Gun Control"}
 
-            ],
-          }]
+
+          ]
+
+
+          // "elements": [{
+          //   "title": "Which news topic would you like to explore?",
+          //   "subtitle": "Tap a news topic to get started.",
+          //   // "image_url": attachment_url,
+          //   "buttons": [
+          //     {
+          //       "type": "postback",
+          //       "title": newsTopics[0],
+          //       "payload": newsTopics[0],
+          //     },
+          //     {
+          //       "type": "postback",
+          //       "title": newsTopics[1],
+          //       "payload": newsTopics[1],
+          //     },
+          //     {
+          //       "type": "postback",
+          //       "title":  newsTopics[2],
+          //       "payload":  newsTopics[2],
+          //     },
+          //     {
+          //       "type": "postback",
+          //       "title": newsTopics[3],
+          //       "payload": newsTopics[3],
+          //     }
+
+          //   ],
+          // }]
         }
       }
 
