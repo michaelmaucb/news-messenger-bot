@@ -34,7 +34,7 @@ app.post('/webhook', (req, res) => {
             if(event.postback && event.postback.payload === "GET_STARTED")
             {
                     //present user with some greeting or call to action
-                    var msg = "Hello! Welcome to the News-Flash-Bot!!"
+                    var msg = "Hello! Welcome to the News-Flash-Bot!\n Type the command 'News' to get started."
                     // console.log(msg)
                     let response;
                     response = {
@@ -42,22 +42,22 @@ app.post('/webhook', (req, res) => {
                     }
                     callSendAPI(event.sender.id, response);
 
-                    let newResponse;
-                    newResponse = {
+                    // let newResponse;
+                    // newResponse = {
                     
-                        "text" : "Press news!",
-                        "quick_replies":[
-                          {
-                            "content_type":"text",
-                            "title":"News",
-                            "payload":"News"
-                          }
-                        ]
-                    }
-                      console.log("new response")
+                    //     "text" : "Press news!",
+                    //     "quick_replies":[
+                    //       {
+                    //         "content_type":"text",
+                    //         "title":"News",
+                    //         "payload":"News"
+                    //       }
+                    //     ]
+                    // }
+                    //   console.log("new response")
 
-                    callSendAPI(event.sender.id, newResponse);
-                    console.log("new response")
+                    // callSendAPI(event.sender.id, newResponse);
+                    // console.log("new response")
 
       
             } 
