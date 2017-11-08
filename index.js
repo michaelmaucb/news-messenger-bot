@@ -430,7 +430,7 @@ function handlePostback(sender_psid, received_postback) {
 
              {
               "title":"Moderate Left: Obama, Biden call for action to prevent gun violence after Texas church shooting",
-              "image_url":"https://www.cbsnews.com/pictures/barack-obama-legacy/",
+              "image_url":"https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2016/01/05/103280854-RTX2157K.530x298.jpg?v=1452019849",
               "subtitle":"Former President Obama and former Vice President Joe Biden called for action to prevent gun violence in the hours after the shooting at the First Baptist Church in Sutherland Springs, Texas, Sunday that left 26 people dead and at least 20 injured",
               "default_action": {
                 "type":"web_url",
@@ -451,7 +451,7 @@ function handlePostback(sender_psid, received_postback) {
 
             {
               "title":"Moderate Right: Repealing the 2nd Amendment Won’t Make Gun Bans Any Easier",
-              "image_url":"https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiBlMqh367XAhUrslQKHQeCBjUQjRwIBw&url=https%3A%2F%2Fwww.huffingtonpost.com%2Fdennis-a-henigan%2Fwhat-trump-vs-clinton-mea_b_11869956.html&psig=AOvVaw3Vw22IR_JxccZrmXccDU7w&ust=1510222459334704",
+              "image_url":"https://s-i.huffpost.com/gen/4665060/images/o-DONALD-TRUMP-GUN-facebook.jpg",
               "subtitle":"If you strip away legal protections for rights valued by millions of Americans, you’re just going to make them angry to no good end.",
               "default_action": {
                 "type":"web_url",
@@ -460,7 +460,7 @@ function handlePostback(sender_psid, received_postback) {
             },
             {
               "title":"Far Right: Conway: Politicizing the TX Church Shooting Doesn't Help the Victims & Disrespects the Dead",
-              "image_url":"https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiDzJyI4K7XAhWJg1QKHQlnAGwQjRwIBw&url=http%3A%2F%2Fmoney.cnn.com%2F2017%2F02%2F22%2Fmedia%2Fkellyanne-conway-sidelined-from-tv%2Findex.html&psig=AOvVaw1ltY5u_V9vCgE9lZgX8FwG&ust=1510222684711540",
+              "image_url":"http://i2.cdn.turner.com/money/dam/assets/170203095515-kellyanne-conway-780x439.jpg",
               "subtitle":"Conway said that playing politics in the immediate aftermath of a tragedy is 'so beyond any type of reasonable response'… She said the rush to judgment doesn't help the victims, and it's disrespectful to the dead.",
               "default_action": {
                 "type":"web_url",
