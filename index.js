@@ -40,6 +40,9 @@ app.post('/webhook', (req, res) => {
       } else {
         console.log(entry)
         console.log("david choi")
+        var msg = "Hi ,I'm a Bot ,and I was created to help you easily .... "
+        handleMessage(event.sender.id, msg)
+
       }
 
       // // Gets the body of the webhook event
