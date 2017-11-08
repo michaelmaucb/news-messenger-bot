@@ -317,8 +317,8 @@ function handleMessage(sender_psid, received_message) {
               "buttons":[
                 {
                   "type" : "postback",
-                  "title" : newsTopics[0],
-                  "payload" : newsTopics[0]
+                  "title" : "Gun Control",
+                  "payload" : "Gun Control"
                 },
                 {
                   "type" : "postback",
@@ -338,7 +338,7 @@ function handleMessage(sender_psid, received_message) {
       }
 
 
-  } else if (received_message.text == newsTopics[0]) {
+  } else if (received_message.text == "Gun Control") {
     console.log("Gun control payload entered");
 
     response = {
