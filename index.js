@@ -300,6 +300,11 @@ function handleMessage(sender_psid, received_message) {
       console.log("goes through handle message")
 
      //handle news functionality
+    console.log("_________________________________")
+
+     console.log(received_message)
+         console.log("_________________________________")
+
     if (received_message.text == 'News') {
       console.log("goes through news")
 
