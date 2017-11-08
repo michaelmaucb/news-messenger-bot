@@ -419,29 +419,56 @@ function handlePostback(sender_psid, received_postback) {
           "template_type":"generic",
           "elements":[
             {
-              "title":"New study finds that 'waiting periods' for gun ownership could save a lot of lives",
+              "title":"Far Left: New study finds that 'waiting periods' for gun ownership could save a lot of lives",
               "image_url":"https://images.dailykos.com/images/461804/story_image/GettyImages-634592362.jpg?1508265079",
               "subtitle":"A new study by a few Harvard professors found that requiring a waiting period for someone to own a gun could reduce firearm homicides by 17 percent.",
               "default_action": {
                 "type":"web_url",
                 "url": "https://www.dailykos.com/stories/2017/10/17/1707563/-New-study-finds-that-waiting-periods-for-gun-ownership-could-save-a-lot-of-lives"
               }
+            },
+
+             {
+              "title":"Moderate Left: Obama, Biden call for action to prevent gun violence after Texas church shooting",
+              "image_url":"https://www.cbsnews.com/pictures/barack-obama-legacy/",
+              "subtitle":"Former President Obama and former Vice President Joe Biden called for action to prevent gun violence in the hours after the shooting at the First Baptist Church in Sutherland Springs, Texas, Sunday that left 26 people dead and at least 20 injured",
+              "default_action": {
+                "type":"web_url",
+                "url": "https://www.cbsnews.com/news/texas-church-shooting-obama-biden-call-for-action-to-prevent-gun-violence/"
+              }
+            },
+
+            {
+              "title":"Center: Texas governor says the church shooter should not have had access to a gun",
+              "image_url":"http://static1.businessinsider.com/image/59ffc2e058a0c11e008b6c50-2000/ap17310058038023small.jpg",
+              
+              "subtitle":"Devin Patrick Kelley, the man authorities say killed 26 and injured 20 in the deadliest mass shooting in Texas history, should not have had access to firearms, according to Texas Gov. Greg Abbott.",
+              "default_action": {
+                "type":"web_url",
+                "url": "http://www.businessinsider.com/texas-church-gunman-devin-patrick-gun-law-felon-domestic-violence-2017-11?r=UK&IR=T"
+              }
+            },
+
+            {
+              "title":"Moderate Right: Repealing the 2nd Amendment Won’t Make Gun Bans Any Easier",
+              "image_url":"https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiBlMqh367XAhUrslQKHQeCBjUQjRwIBw&url=https%3A%2F%2Fwww.huffingtonpost.com%2Fdennis-a-henigan%2Fwhat-trump-vs-clinton-mea_b_11869956.html&psig=AOvVaw3Vw22IR_JxccZrmXccDU7w&ust=1510222459334704",
+              "subtitle":"If you strip away legal protections for rights valued by millions of Americans, you’re just going to make them angry to no good end.",
+              "default_action": {
+                "type":"web_url",
+                "url": "http://reason.com/archives/2017/10/10/repealing-the-2nd-amendment-wont-make-gu"
+              }
+            },
+            {
+              "title":"Far Right: Conway: Politicizing the TX Church Shooting Doesn't Help the Victims & Disrespects the Dead",
+              "image_url":"https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiDzJyI4K7XAhWJg1QKHQlnAGwQjRwIBw&url=http%3A%2F%2Fmoney.cnn.com%2F2017%2F02%2F22%2Fmedia%2Fkellyanne-conway-sidelined-from-tv%2Findex.html&psig=AOvVaw1ltY5u_V9vCgE9lZgX8FwG&ust=1510222684711540",
+              "subtitle":"Conway said that playing politics in the immediate aftermath of a tragedy is 'so beyond any type of reasonable response'… She said the rush to judgment doesn't help the victims, and it's disrespectful to the dead.",
+              "default_action": {
+                "type":"web_url",
+                "url": "http://insider.foxnews.com/2017/11/06/kellyanne-conway-texas-church-shooting-left-politicizing-tragedy"
+              }
             }
 
-            // },
-            // {
-            //   "title":
-
-            // },
-            // {
-
-            // },
-            // {
-
-            // },
-            // {
-
-            // }
+            
 
 
           ]
