@@ -31,23 +31,18 @@ app.post('/webhook', (req, res) => {
             //receivedMessage(event);
           } else {
             console.log(event)
-
-            if (event.postback) {
-              handlePostback(event.sender.id, event.postback.payload)
-            }
-
-            // if(event.postback && event.postback.payload === "GET_STARTED")
-            // {
-            //         //present user with some greeting or call to action
-            //         var msg = "Hello! Welcome to the News-Flash-Bot!!"
-            //         // console.log(msg)
-            //         let response;
-            //         response = {
-            //           "text": msg
-            //         }
-            //         callSendAPI(event.sender.id, response);
+            if(event.postback && event.postback.payload === "GET_STARTED")
+            {
+                    //present user with some greeting or call to action
+                    var msg = "Hello! Welcome to the News-Flash-Bot!!"
+                    // console.log(msg)
+                    let response;
+                    response = {
+                      "text": msg
+                    }
+                    callSendAPI(event.sender.id, response);
       
-            // } 
+            } 
           }
         });
       } else {
@@ -310,28 +305,11 @@ function handlePostback(sender_psid, received_postback) {
   let payload = received_postback.payload;
 
   // Set the response based on the postback payload
-  // if (payload === 'yes') {
-  //   response = { "text": "Thanks!" }
-  // } else if (payload === 'no') {
-  //   response = { "text": "Oops, try sending another image." }
-  // }
-  // // Send the message to acknowledge the postback
-  // callSendAPI(sender_psid, response);
-
-
-  if(payload=== "GET_STARTED")
-    {
-            //present user with some greeting or call to action
-            var msg = "Hello! Welcome to the News-Flash-Bot!!"
-            // console.log(msg)
-            response = {
-              "text": msg
-            }
-            callSendAPI(sender_psid, response);
-
-    } 
+  if (payload === 'yes') {
+    response = { "text": "Thanks!" }
+  } else if (payload === 'no') {
+    response = { "text": "Oops, try sending another image." }
+  }
+  // Send the message to acknowledge the postback
+  callSendAPI(sender_psid, response);
 }
-
-
-
-
