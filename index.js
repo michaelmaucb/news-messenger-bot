@@ -36,6 +36,7 @@ app.post('/webhook', (req, res) => {
                     //present user with some greeting or call to action
                     var msg = "Hi ,I'm a Bot ,and I was created to help you easily .... "
                     console.log(msg)
+                    console.log(event.sender)
                     // handleMessage(event.sender.id,msg);
                     handleMessage(event.recipient.id,msg);      
       
