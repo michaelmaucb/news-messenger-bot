@@ -28,7 +28,7 @@ app.post('/webhook', (req, res) => {
           if (event.message) {
             //receivedMessage(event);
           } else {
-            if(event.postback && event.postback.payload === GET_STARTED_PAYLOAD)
+            if(event.postback && event.postback.payload === "<GET_STARTED_PAYLOAD>")
             {
                     //present user with some greeting or call to action
                     var msg = "Hi ,I'm a Bot ,and I was created to help you easily .... "
@@ -216,11 +216,11 @@ function setupPersistentMenu(res){
 
 function setupGetStartedButton(res){
   var messageData = {
-    "get_started":[
+    "get_started":{
       {
-          "payload":"GET_STARTED_PAYLOAD"
+          "payload":"<GET_STARTED_PAYLOAD>"
           }
-      ]
+      }
   };
   // Start the request
   request({
