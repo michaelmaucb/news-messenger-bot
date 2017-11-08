@@ -39,11 +39,6 @@ app.post('/webhook', (req, res) => {
         let sender_psid = webhook_event.sender.id;
         console.log('Sender PSID: ' + sender_psid);
 
-        if (webhook_event.message == 'Get Started') {
-          setupGreetingText(res, sender_psid);
-          return
-        }
-
         handleMessage(sender_psid, webhook_event.message);        
       } else if (webhook_event.postback) {
         handlePostback(sender_psid, webhook_event.postback);
@@ -90,17 +85,16 @@ app.get('/webhook/', (req, res) => {
 
 app.get('/setup',function(req,res){
     setupGetStartedButton(res);
-    // setupPersistentMenu(res);
+    setupPersistentMenu(res);
     setupGreetingText(res);
 });
 
-
-function setupGreetingText(res, sender_psid){
+function setupGreetingText(res){
   var messageData = {
       "greeting":[
           {
           "locale":"default",
-          "text":"Hello {{user_first_name}}!"
+          "text":"Welcome to the News Flash Bot!"
           }, {
           "locale":"en_US",
           "text":"Welcome to the News Flash Bot!"
@@ -115,44 +109,20 @@ function setupGreetingText(res, sender_psid){
   function (error, response, body) {
       if (!error && response.statusCode == 200) {
           // Print out the response body
+          console.log("Success")
           res.send(body);
 
       } else { 
           // TODO: Handle errors
+          console.log("Fail")
+
           res.send(body);
+          // console.log("Fail")
+
       }
   });
-  callSendAPI(sender_psid, messageData);
+
 }
-
-// function setupGreetingText(res){
-//   var messageData = {
-//       "greeting":[
-//           {
-//           "locale":"default",
-//           "text":"Hello {{user_first_name}}!"
-//           }, {
-//           "locale":"en_US",
-//           "text":"Welcome to the News Flash Bot!"
-//           }
-//       ]};
-//   request({
-//       url: 'https://graph.facebook.com/v2.6/me/messenger_profile?access_token='+ PAGE_ACCESS_TOKEN,
-//       method: 'POST',
-//       headers: {'Content-Type': 'application/json'},
-//       form: messageData
-//   },
-//   function (error, response, body) {
-//       if (!error && response.statusCode == 200) {
-//           // Print out the response body
-//           res.send(body);
-
-//       } else { 
-//           // TODO: Handle errors
-//           res.send(body);
-//       }
-//   });
-// }
 
 function setupPersistentMenu(res){
   var messageData = 
@@ -270,12 +240,8 @@ function handleMessage(sender_psid, received_message) {
     
     // Creates the payload for a basic text message, which
     // will be added to the body of our request to the Send API
-    if (received_message.text == 'Get Started') {
-      // setupGreetingText();
-      return
-    }
     response = {
-      "text": `You sent the message: "${received_message.text}". Now send me an image!`
+      "text": You sent the message: "${received_message.text}". Now send me an attachment!
     }
 
   } else if (received_message.attachments) {
@@ -305,6 +271,3 @@ function handlePostback(sender_psid, received_postback) {
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
 }
-
-
-
