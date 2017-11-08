@@ -50,7 +50,7 @@ app.post('/webhook', (req, res) => {
                           {
                             "content_type":"text",
                             "title":"News",
-                            "payload":"news"
+                            "payload":"News"
                           }
                         ]
                     }
@@ -300,7 +300,7 @@ function handleMessage(sender_psid, received_message) {
       console.log("goes through handle message")
 
      //handle news functionality
-    if (received_message.text == 'news') {
+    if (received_message.text == 'News') {
       console.log("goes through news")
 
       response = {
