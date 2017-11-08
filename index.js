@@ -42,6 +42,12 @@ app.post('/webhook', (req, res) => {
         handleMessage(sender_psid, webhook_event.message);        
       } else if (webhook_event.postback) {
         handlePostback(sender_psid, webhook_event.postback);
+      } else {
+        if(event.postback && event.postback.payload === USER_DEFINED_PAYLOAD ){
+                //present user with some greeting or call to action
+          var msg = "Hi ,I'm a News-Flash-Bot"
+          sendMessage(event.sender.id,msg);
+        } 
       }
 
     });
@@ -85,8 +91,8 @@ app.get('/webhook/', (req, res) => {
 
 app.get('/setup',function(req,res){
     setupGetStartedButton(res);
-    setupPersistentMenu(res);
-    setupGreetingText(res);
+    // setupPersistentMenu(res);
+    // setupGreetingText(res);
 });
 
 function setupGreetingText(res){
