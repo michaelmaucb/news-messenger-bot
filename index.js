@@ -44,15 +44,19 @@ app.post('/webhook', (req, res) => {
 
                     let newResponse;
                     newResponse = {
-                      "quick_replies":[
-                      {
-                        "content_type":"text",
-                        "title":"Press news",
-                        "payload":"news"
+                      "message" : {
+                        "text" : "Press news!",
+                        "quick_replies":[
+                          {
+                            "content_type":"text",
+                            "title":"News",
+                            "payload":"news"
+                          }
+                        ]
                       }
-                      ]
                     }
                     callSendAPI(event.sender.id, newResponse);
+                    console.log("new response")
 
       
             } 
