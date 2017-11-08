@@ -131,101 +131,101 @@ app.get('/setup',function(req,res){
     // setupGreetingText(res);
 });
 
-function setupGreetingText(res){
-  var messageData = {
-      "greeting":[
-          {
-          "locale":"default",
-          "text":"Welcome to the News Flash Bot!"
-          }, {
-          "locale":"en_US",
-          "text":"Welcome to the News Flash Bot!"
-          }
-      ]};
-  request({
-      url: 'https://graph.facebook.com/v2.6/me/messenger_profile?access_token='+ PAGE_ACCESS_TOKEN,
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      form: messageData
-  },
-  function (error, response, body) {
-      if (!error && response.statusCode == 200) {
-          // Print out the response body
-          console.log("Success")
-          res.send(body);
+// function setupGreetingText(res){
+//   var messageData = {
+//       "greeting":[
+//           {
+//           "locale":"default",
+//           "text":"Welcome to the News Flash Bot!"
+//           }, {
+//           "locale":"en_US",
+//           "text":"Welcome to the News Flash Bot!"
+//           }
+//       ]};
+//   request({
+//       url: 'https://graph.facebook.com/v2.6/me/messenger_profile?access_token='+ PAGE_ACCESS_TOKEN,
+//       method: 'POST',
+//       headers: {'Content-Type': 'application/json'},
+//       form: messageData
+//   },
+//   function (error, response, body) {
+//       if (!error && response.statusCode == 200) {
+//           // Print out the response body
+//           console.log("Success")
+//           res.send(body);
 
-      } else { 
-          // TODO: Handle errors
-          console.log("Fail")
+//       } else { 
+//           // TODO: Handle errors
+//           console.log("Fail")
 
-          res.send(body);
-          // console.log("Fail")
+//           res.send(body);
+//           // console.log("Fail")
 
-      }
-  });
+//       }
+//   });
 
-}
+// }
 
-function setupPersistentMenu(res){
-  var messageData = 
-      {"persistent_menu":[
-          {
-          "locale":"default",
-          "composer_input_disabled":true,
-          "call_to_actions":[
-              {
-              "title":"Info",
-              "type":"nested",
-              "call_to_actions":[
-                  {
-                  "title":"Help",
-                  "type":"postback",
-                  "payload":"HELP_PAYLOAD"
-                  },
-                  {
-                  "title":"Contact Me",
-                  "type":"postback",
-                  "payload":"CONTACT_INFO_PAYLOAD"
-                  }
-              ]
-              },
-              {
-              "type":"web_url",
-              "title":"Visit website ",
-              "url":"http://www.facebook.com",
-              "webview_height_ratio":"full"
-              }
-          ]
-          },
-          {
-          "locale":"zh_CN",
-          "composer_input_disabled":false
-          }
-      ]};  
-  // Start the request
-  request({
-      url: "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+ PAGE_ACCESS_TOKEN,
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      form: messageData
-  },
-  function (error, response, body) {
-      if (!error && response.statusCode == 200) {
-          // Print out the response body
-          res.send(body);
+// function setupPersistentMenu(res){
+//   var messageData = 
+//       {"persistent_menu":[
+//           {
+//           "locale":"default",
+//           "composer_input_disabled":true,
+//           "call_to_actions":[
+//               {
+//               "title":"Info",
+//               "type":"nested",
+//               "call_to_actions":[
+//                   {
+//                   "title":"Help",
+//                   "type":"postback",
+//                   "payload":"HELP_PAYLOAD"
+//                   },
+//                   {
+//                   "title":"Contact Me",
+//                   "type":"postback",
+//                   "payload":"CONTACT_INFO_PAYLOAD"
+//                   }
+//               ]
+//               },
+//               {
+//               "type":"web_url",
+//               "title":"Visit website ",
+//               "url":"http://www.facebook.com",
+//               "webview_height_ratio":"full"
+//               }
+//           ]
+//           },
+//           {
+//           "locale":"zh_CN",
+//           "composer_input_disabled":false
+//           }
+//       ]};  
+//   // Start the request
+//   request({
+//       url: "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+ PAGE_ACCESS_TOKEN,
+//       method: 'POST',
+//       headers: {'Content-Type': 'application/json'},
+//       form: messageData
+//   },
+//   function (error, response, body) {
+//       if (!error && response.statusCode == 200) {
+//           // Print out the response body
+//           res.send(body);
 
-      } else { 
-          // TODO: Handle errors
-          res.send(body);
-      }
-  });
+//       } else { 
+//           // TODO: Handle errors
+//           res.send(body);
+//       }
+//   });
 
-}
+// }
 
 function setupGetStartedButton(res){
   var messageData = {
     "get_started":{
-          "payload":"<GET_STARTED_PAYLOAD>"
+          "payload":"GET_STARTED"
     }
   };
   // Start the request
