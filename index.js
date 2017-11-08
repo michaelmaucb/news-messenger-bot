@@ -278,9 +278,11 @@ function handleMessage(sender_psid, received_message) {
   let response;
   let newsTopics = ["Gun Control", "White House", "Health Care"];
   // Checks if the message contains text
+      console.log("goes through handle message")
 
      //handle news functionality
     if (received_message.text == 'news') {
+      console.log("goes through news")
        response = {
       "attachment": {
         "type": "template",
