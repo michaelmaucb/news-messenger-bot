@@ -284,51 +284,47 @@ function handleMessage(sender_psid, received_message) {
      //handle news functionality
     if (received_message.text == 'news') {
       console.log("goes through news")
-       response = {
-      "message": {
-        "type": "template",
-        "payload": {
-          "template_type": "button",
-          "text": "News Topics",
-          "buttons":[
-          {"title": "Gun Control"}
+
+      response = {"text" : "hey beuafjlsjkd"}
 
 
-          ]
+    //    response = {
+    //   "attachment": {
+    //     "type": "template",
+    //     "payload": {
+    //       "template_type": "generic",
+    //       "elements": [{
+    //         "title": "Which news topic would you like to explore?",
+    //         "subtitle": "Tap a news topic to get started.",
+    //         // "image_url": attachment_url,
+    //         "buttons": [
+    //           {
+    //             "type": "postback",
+    //             "title": newsTopics[0],
+    //             "payload": newsTopics[0],
+    //           },
+    //           {
+    //             "type": "postback",
+    //             "title": newsTopics[1],
+    //             "payload": newsTopics[1],
+    //           },
+    //           {
+    //             "type": "postback",
+    //             "title":  newsTopics[2],
+    //             "payload":  newsTopics[2],
+    //           },
+    //           {
+    //             "type": "postback",
+    //             "title": newsTopics[3],
+    //             "payload": newsTopics[3],
+    //           }
 
+    //         ],
+    //       }]
+    //     }
+    //   }
 
-          // "elements": [{
-          //   "title": "Which news topic would you like to explore?",
-          //   "subtitle": "Tap a news topic to get started.",
-          //   // "image_url": attachment_url,
-          //   "buttons": [
-          //     {
-          //       "type": "postback",
-          //       "title": newsTopics[0],
-          //       "payload": newsTopics[0],
-          //     },
-          //     {
-          //       "type": "postback",
-          //       "title": newsTopics[1],
-          //       "payload": newsTopics[1],
-          //     },
-          //     {
-          //       "type": "postback",
-          //       "title":  newsTopics[2],
-          //       "payload":  newsTopics[2],
-          //     },
-          //     {
-          //       "type": "postback",
-          //       "title": newsTopics[3],
-          //       "payload": newsTopics[3],
-          //     }
-
-          //   ],
-          // }]
-        }
-      }
-
-    }
+    // }
 
 
   } else if (received_message.attachments) {
