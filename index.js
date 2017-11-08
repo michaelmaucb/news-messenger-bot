@@ -30,6 +30,14 @@ app.post('/webhook', (req, res) => {
             console.log("david choi is cool")
             //receivedMessage(event);
           } else {
+            console.log(event)
+            if(event.postback && event.postback.payload === "GET_STARTED_PAYLOAD")
+            {
+                    //present user with some greeting or call to action
+                    var msg = "Hi ,I'm a Bot ,and I was created to help you easily .... "
+                    console.log(msg)
+                    handleMessage(event.sender.id,msg);      
+            } 
             if(event.postback && event.postback.payload === "<GET_STARTED_PAYLOAD>")
             {
                     //present user with some greeting or call to action
