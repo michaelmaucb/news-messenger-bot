@@ -285,7 +285,29 @@ function handleMessage(sender_psid, received_message) {
     if (received_message.text == 'news') {
       console.log("goes through news")
 
-      response = {"text" : "hey beuafjlsjkd"}
+      response = {
+        "attachment" : {
+          "type" : "template",
+          "payload" : {
+              "template_type":"button",
+              "text":"<MESSAGE_TEXT>",
+              "buttons":[
+                {
+                  "type" : "postback",
+                  "title" : newsTopics[0],
+                  "payload" : newsTopics[0]
+                },
+                {
+                  "type" : "postback",
+                  "title" : newsTopics[1],
+                  "payload" : newsTopics[1]
+                }
+              ]
+          }
+
+        }
+
+      }
 
 
     //    response = {
