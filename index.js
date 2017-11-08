@@ -25,17 +25,17 @@ app.post('/webhook', (req, res) => {
 
       if (entry.messaging) {
         entry.messaging.forEach(function(event) {
-          console.log("jay is cool")
+          // console.log("jay is cool")
           if (event.message) {
-            console.log("david choi is cool")
+            // console.log("david choi is cool")
             //receivedMessage(event);
           } else {
             console.log(event)
             if(event.postback && event.postback.payload === "GET_STARTED")
             {
                     //present user with some greeting or call to action
-                    var msg = "Hello {{user-first-name}}! Welcome to the News-Flash-Bot!"
-                    console.log(msg)
+                    var msg = "Hello! Welcome to the News-Flash-Bot!!"
+                    // console.log(msg)
                     let response;
                     response = {
                       "text": msg
