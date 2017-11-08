@@ -289,7 +289,7 @@ function handleMessage(sender_psid, received_message) {
           "elements": [{
             "title": "Which news topic would you like to explore?",
             "subtitle": "Tap a news topic to get started.",
-            "image_url": attachment_url,
+            // "image_url": attachment_url,
             "buttons": [
               {
                 "type": "postback",
