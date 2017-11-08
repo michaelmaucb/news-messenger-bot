@@ -60,7 +60,10 @@ app.post('/webhook', (req, res) => {
                     // console.log("new response")
 
       
-            } 
+            }
+            else if (event.postback) {
+              handlePostback(event.sender.id, event.postback);
+            }
           }
         });
       } else {
