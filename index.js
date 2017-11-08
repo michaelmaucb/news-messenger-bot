@@ -217,10 +217,8 @@ function setupPersistentMenu(res){
 function setupGetStartedButton(res){
   var messageData = {
     "get_started":{
-      {
           "payload":"<GET_STARTED_PAYLOAD>"
-          }
-      }
+    }
   };
   // Start the request
   request({
