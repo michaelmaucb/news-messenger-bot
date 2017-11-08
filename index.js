@@ -39,6 +39,11 @@ app.post('/webhook', (req, res) => {
         let sender_psid = webhook_event.sender.id;
         console.log('Sender PSID: ' + sender_psid);
 
+        if (webhook_event.message == 'Get Started') {
+          setupGreetingText(res, sender_psid);
+          return
+        }
+
         handleMessage(sender_psid, webhook_event.message);        
       } else if (webhook_event.postback) {
         handlePostback(sender_psid, webhook_event.postback);
@@ -89,7 +94,8 @@ app.get('/setup',function(req,res){
     // setupGreetingText(res);
 });
 
-function setupGreetingText(res){
+
+function setupGreetingText(res, sender_psid){
   var messageData = {
       "greeting":[
           {
@@ -116,8 +122,37 @@ function setupGreetingText(res){
           res.send(body);
       }
   });
-
+  callSendAPI(sender_psid, messageData);
 }
+
+// function setupGreetingText(res){
+//   var messageData = {
+//       "greeting":[
+//           {
+//           "locale":"default",
+//           "text":"Hello {{user_first_name}}!"
+//           }, {
+//           "locale":"en_US",
+//           "text":"Welcome to the News Flash Bot!"
+//           }
+//       ]};
+//   request({
+//       url: 'https://graph.facebook.com/v2.6/me/messenger_profile?access_token='+ PAGE_ACCESS_TOKEN,
+//       method: 'POST',
+//       headers: {'Content-Type': 'application/json'},
+//       form: messageData
+//   },
+//   function (error, response, body) {
+//       if (!error && response.statusCode == 200) {
+//           // Print out the response body
+//           res.send(body);
+
+//       } else { 
+//           // TODO: Handle errors
+//           res.send(body);
+//       }
+//   });
+// }
 
 function setupPersistentMenu(res){
   var messageData = 
