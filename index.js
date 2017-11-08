@@ -285,7 +285,7 @@ function handleMessage(sender_psid, received_message) {
     if (received_message.text == 'news') {
       console.log("goes through news")
        response = {
-      "attachment": {
+      "message": {
         "type": "template",
         "payload": {
           "template_type": "generic",
