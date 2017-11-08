@@ -249,6 +249,7 @@ function setupGetStartedButton(res){
 
 function callSendAPI(sender_psid, response) {
   // Construct the message body
+  console.log(response);
   let request_body = {
     "recipient": {
       "id": sender_psid
