@@ -26,6 +26,7 @@ app.post('/webhook', (req, res) => {
       if (entry.messaging) {
         entry.messaging.forEach(function(event) {
           if (event.message) {
+            console.log("david choi is cool")
             //receivedMessage(event);
           } else {
             if(event.postback && event.postback.payload === "<GET_STARTED_PAYLOAD>")
