@@ -46,10 +46,10 @@ app.post('/webhook', (req, res) => {
           }
         });
       } else {
-        console.log(entry)
-        console.log("david choi")
-        var msg = "Hi ,I'm a Bot ,and I was created to help you easily .... "
-        handleMessage(entry.id, msg)
+        // console.log(entry)
+        // console.log("david choi")
+        // var msg = "Hi ,I'm a Bot ,and I was created to help you easily .... "
+        // handleMessage(entry.id, msg)
 
       }
 
