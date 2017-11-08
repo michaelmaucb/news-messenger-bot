@@ -34,7 +34,7 @@ app.post('/webhook', (req, res) => {
             if(event.postback && event.postback.payload === "GET_STARTED")
             {
                     //present user with some greeting or call to action
-                    var msg = "Hi ,I'm a Bot ,and I was created to help you easily .... "
+                    var msg = "Hello {{user-first-name}}! Welcome to the News-Flash-Bot!"
                     console.log(msg)
                     let response;
                     response = {
