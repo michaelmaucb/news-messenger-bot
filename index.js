@@ -27,8 +27,8 @@ app.post('/webhook', (req, res) => {
         entry.messaging.forEach(function(event) {
           // console.log("jay is cool")
           if (event.message) {
-            // console.log("david choi is cool")
-            //receivedMessage(event);
+            console.log("sending messages :)")
+            handleMessage(event.sender.id, event.message);
           } else {
             console.log(event)
             if(event.postback && event.postback.payload === "GET_STARTED")
