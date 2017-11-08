@@ -334,6 +334,8 @@ function handleMessage(sender_psid, received_message) {
 
 
   } else if (received_message.text == newsTopics[0]) {
+    console.log("Gun control payload entered");
+
     response = {
       "attachment":{
         "type":"template",
