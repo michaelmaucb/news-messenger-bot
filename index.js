@@ -276,15 +276,49 @@ function callSendAPI(sender_psid, response) {
 function handleMessage(sender_psid, received_message) {
 
   let response;
-
+  let newsTopics = ["Gun Control", "White House", "Health Care"];
   // Checks if the message contains text
-  if (received_message.text) {
-    
-    // Creates the payload for a basic text message, which
-    // will be added to the body of our request to the Send API
-    response = {
-      "text": 'You sent the message: "${received_message.text}". Now send me an attachment!'
+
+     //handle news functionality
+    if (received_message.text == 'news') {
+       response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "Which news topic would you like to explore?",
+            "subtitle": "Tap a news topic to get started.",
+            "image_url": attachment_url,
+            "buttons": [
+              {
+                "type": "postback",
+                "title": newsTopics[0],
+                "payload": newsTopics[0],
+              },
+              {
+                "type": "postback",
+                "title": newsTopics[1],
+                "payload": newsTopics[1],
+              },
+              {
+                "type": "postback",
+                "title":  newsTopics[2],
+                "payload":  newsTopics[2],
+              },
+              {
+                "type": "postback",
+                "title": newsTopics[3],
+                "payload": newsTopics[3],
+              }
+
+            ],
+          }]
+        }
+      }
+
     }
+
 
   } else if (received_message.attachments) {
   
@@ -300,16 +334,54 @@ function handleMessage(sender_psid, received_message) {
 
 function handlePostback(sender_psid, received_postback) {
   let response;
+  let newsTopics = ["Gun Control", "White House", "Health Care"];
+
   
   // Get the payload for the postback
   let payload = received_postback.payload;
 
   // Set the response based on the postback payload
-  if (payload === 'yes') {
-    response = { "text": "Thanks!" }
-  } else if (payload === 'no') {
-    response = { "text": "Oops, try sending another image." }
+    // Set the response based on the postback payload
+  if (payload === newsTopics[0]) {
+    response = {
+       "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"generic",
+        "elements":[
+           {
+            "title":"Welcome to Peter\'s Hats",
+            "image_url":"https://petersfancybrownhats.com/company_image.png",
+            "subtitle":"We\'ve got the right hat for everyone.",
+            "default_action": {
+              "type": "web_url",
+              "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
+              "messenger_extensions": true,
+              "webview_height_ratio": "tall",
+              "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+            },
+            "buttons":[
+              {
+                "type":"web_url",
+                "url":"https://petersfancybrownhats.com",
+                "title":"View Website"
+              },{
+                "type":"postback",
+                "title":"Start Chatting",
+                "payload":"DEVELOPER_DEFINED_PAYLOAD"
+              }
+            ]
+          }
+        ]
+      }
+    }
+
+    }
   }
+
+
+
+
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
 }
