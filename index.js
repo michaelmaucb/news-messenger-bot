@@ -85,8 +85,8 @@ app.get('/webhook/', (req, res) => {
 
 app.get('/setup',function(req,res){
     setupGetStartedButton(res);
-    setupPersistentMenu(res);
-    setupGreetingText(res);
+    // setupPersistentMenu(res);
+    // setupGreetingText(res);
 });
 
 function setupGreetingText(res){
