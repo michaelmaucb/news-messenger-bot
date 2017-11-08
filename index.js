@@ -290,7 +290,7 @@ function handleMessage(sender_psid, received_message) {
           "type" : "template",
           "payload" : {
               "template_type":"button",
-              "text":"<MESSAGE_TEXT>",
+              "text":"To get started, choose a news topic you'd like to explore.",
               "buttons":[
                 {
                   "type" : "postback",
@@ -301,6 +301,11 @@ function handleMessage(sender_psid, received_message) {
                   "type" : "postback",
                   "title" : newsTopics[1],
                   "payload" : newsTopics[1]
+                },
+                {
+                  "type" : "postback",
+                  "title" : newsTopics[2],
+                  "payload" : newsTopics[2]
                 }
               ]
           }
