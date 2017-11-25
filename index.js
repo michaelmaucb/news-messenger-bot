@@ -40,6 +40,7 @@ app.post('/webhook', (req, res) => {
                     response = {
                       "text": msg
                     }
+                    console.log(event.sender.id);
                     callSendAPI(event.sender.id, response);
 
                     // let newResponse;
