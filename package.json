@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/dkchoi21/news-messenger-bot#readme",
   "dependencies": {
+    "express": "^4.16.2",
     "request": "^2.83.0"
   }
 }
