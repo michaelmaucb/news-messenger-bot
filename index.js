@@ -28,7 +28,6 @@ app.post('/webhook', (req, res) => {
           // console.log("jay is cool")
           if (event.message) {
             console.log("sending messages :)")
-            console.log(event.sender.id);
             handleMessage(event.sender.id, event.message);
           } else {
             console.log(event)
@@ -118,16 +117,6 @@ app.post('/webhook', (req, res) => {
   }
 
 });
-
-// app.get('/', (req, res) => {
-//   res.send("What up")
-// });
-
-// app.get('/', (req, res) => {
-//   res.send("What up")
-// });
-
-
 
 // Adds support for GET requests to our webhook
 app.get('/webhook/', (req, res) => {
