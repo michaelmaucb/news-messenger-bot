@@ -321,8 +321,8 @@ function handleMessage(sender_psid, received_message) {
               "buttons":[
                 {
                   "type" : "postback",
-                  "title" : "Gun Control",
-                  "payload" : "Gun Control"
+                  "title" : newsTopics[0],
+                  "payload" : newsTopics[0]
                 },
                 {
                   "type" : "postback",
