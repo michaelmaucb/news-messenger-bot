@@ -348,7 +348,7 @@ function handleMessage(sender_psid, received_message) {
                   "type" : "postback",
                   "title" : newsTopics[5],
                   "payload" : newsTopics[5]
-                },
+                }
               ]
           }
 
