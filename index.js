@@ -354,7 +354,7 @@ function handleMessage(sender_psid, received_message) {
                       "type": "postback",
                       "title": "option 1",
                       "payload": "option 1",
-                  }, ...,
+                  },
                   {
                       "type": "postback",
                       "title": "option 3",
@@ -367,15 +367,15 @@ function handleMessage(sender_psid, received_message) {
                       "type": "postback",
                       "title": "option 28",
                       "payload": "option 28",
-                  }, ...,
+                  },
                   {
                       "type": "postback",
                       "title": "option 30",
                       "payload": "option 30",
                   }],
               }]
-          }
-      }
+            }
+        } 
 
         "attachment": {
           "type": "template",
