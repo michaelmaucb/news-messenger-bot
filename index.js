@@ -313,35 +313,84 @@ function handleMessage(sender_psid, received_message) {
       console.log("goes through news")
 
       response = {
-        "attachment" : {
-          "type" : "template",
-          "payload" : {
-              "template_type":"button",
-              "text":"To get started, choose a news topic you'd like to explore.",
-              "buttons":[
-                {
-                  "type" : "postback",
-                  "title" : newsTopics[0],
-                  "payload" : newsTopics[0]
-                },
-                {
-                  "type" : "postback",
-                  "title" : newsTopics[1],
-                  "payload" : newsTopics[1]
-                },
-                {
-                  "type" : "postback",
-                  "title" : newsTopics[2],
-                  "payload" : newsTopics[2]
-                },
-                {
-                  "type" : "postback",
-                  "title" : newsTopics[3],
-                  "payload" : newsTopics[3]
-                },
-              ]
-          }
+        // "attachment" : {
+        //   "type" : "template",
+        //   "payload" : {
+        //       "template_type":"button",
+        //       "text":"To get started, choose a news topic you'd like to explore.",
+        //       "buttons":[
+        //         {
+        //           "type" : "postback",
+        //           "title" : newsTopics[0],
+        //           "payload" : newsTopics[0]
+        //         },
+        //         {
+        //           "type" : "postback",
+        //           "title" : newsTopics[1],
+        //           "payload" : newsTopics[1]
+        //         },
+        //         {
+        //           "type" : "postback",
+        //           "title" : newsTopics[2],
+        //           "payload" : newsTopics[2]
+        //         },
+        //         {
+        //           "type" : "postback",
+        //           "title" : newsTopics[3],
+        //           "payload" : newsTopics[3]
+        //         },
+        //       ]
+        //   }
 
+        // }
+
+        "attachment": {
+          "type": "template",
+          "payload": {
+            "template_type": "generic",
+            "elements": [
+              {
+                "title": "Swipe left/right for more options.",
+                "buttons": [
+                  {
+                    "type": "postback",
+                    "title": "Button 1",
+                    "payload": "button1"
+                  },
+                  {
+                    "type": "postback",
+                    "title": "Button 2",
+                    "payload": "button2"
+                  },
+                  {
+                    "type": "postback",
+                    "title": "Button 3",
+                    "payload": "button3"
+                  }
+                ]
+              },
+              {
+                "title": "Swipe left/right for more options.",
+                "buttons": [
+                  {
+                    "type": "postback",
+                    "title": "Button 4",
+                    "payload": "button4"
+                  },
+                  {
+                    "type": "postback",
+                    "title": "Button 5",
+                    "payload": "button5"
+                  },
+                  {
+                    "type": "postback",
+                    "title": "Button 6",
+                    "payload": "button6"
+                  }
+                ]
+              }
+            ]
+          }
         }
 
       }
