@@ -403,7 +403,8 @@ function handleMessage(sender_psid, received_message) {
 
 function handlePostback(sender_psid, received_postback) {
   let response;
-  let newsTopics = ["Gun Control", "White House", "Health Care"];
+  // let newsTopics = ["Gun Control", "White House", "Health Care"];
+  let newsTopics = ["Latest News", "U.S.", "International", "Politics", "Business", "Technology"]
 
   
   // Get the payload for the postback
@@ -412,7 +413,8 @@ function handlePostback(sender_psid, received_postback) {
   console.log("___________________________")
 
   // Set the response based on the postback payload
-    // Set the response based on the postback payload
+
+  // 0 ==> Latest News
   if (payload == newsTopics[0]) {
     response = {
       "attachment":{
@@ -421,52 +423,51 @@ function handlePostback(sender_psid, received_postback) {
           "template_type":"generic",
           "elements":[
             {
-              "title":"Far Left: New study finds that 'waiting periods' for gun ownership could save a lot of lives",
-              "image_url":"https://images.dailykos.com/images/461804/story_image/GettyImages-634592362.jpg?1508265079",
-              "subtitle":"A new study by a few Harvard professors found that requiring a waiting period for someone to own a gun could reduce firearm homicides by 17 percent.",
+              "title":"U.S.: Black Friday boosts battered department stores, some of which are claiming a 'record' weekend",
+              "image_url":"https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2014/11/12/102178715-452436613.530x298.jpg?v=1476720910",
+              "subtitle":"Department stores overall appear to have fared well on Black Friday, kicking off the holiday shopping season on a high note.",
               "default_action": {
                 "type":"web_url",
-                "url": "https://www.dailykos.com/stories/2017/10/17/1707563/-New-study-finds-that-waiting-periods-for-gun-ownership-could-save-a-lot-of-lives"
+                "url": "https://www.cnbc.com/2017/11/25/black-friday-boosts-battered-department-stores-on-thanksgiving-weekend.html"
               }
             },
 
              {
-              "title":"Moderate Left: Obama, Biden call for action to prevent gun violence after Texas church shooting",
-              "image_url":"https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2016/01/05/103280854-RTX2157K.530x298.jpg?v=1452019849",
-              "subtitle":"Former President Obama and former Vice President Joe Biden called for action to prevent gun violence in the hours after the shooting at the First Baptist Church in Sutherland Springs, Texas, Sunday that left 26 people dead and at least 20 injured",
+              "title":"International: Egypt attack: Gunmen kill 235 in Sinai mosque",
+              "image_url":"https://ichef.bbci.co.uk/news/695/cpsprodpb/B1ED/production/_98894554_mediaitem98894553.jpg",
+              "subtitle":"Militants have launched a bomb and gun attack on a mosque in Egypt's North Sinai province, killing 235 people, state media say.",
               "default_action": {
                 "type":"web_url",
-                "url": "https://www.cbsnews.com/news/texas-church-shooting-obama-biden-call-for-action-to-prevent-gun-violence/"
+                "url": "http://www.bbc.com/news/world-middle-east-42110223"
               }
             },
 
             {
-              "title":"Center: Texas governor says the church shooter should not have had access to a gun",
-              "image_url":"http://static1.businessinsider.com/image/59ffc2e058a0c11e008b6c50-2000/ap17310058038023small.jpg",
-              
-              "subtitle":"Devin Patrick Kelley, the man authorities say killed 26 and injured 20 in the deadliest mass shooting in Texas history, should not have had access to firearms, according to Texas Gov. Greg Abbott.",
+              "title":"Politics: Flynn's lawyers no longer sharing information with Trump's legal team",
+              "image_url":"http://cdn.cnn.com/cnnnext/dam/assets/161117201720-02-michael-flynn-1117-exlarge-169.jpg",
+              "subtitle":"Michael Flynn's lawyers have told other defense lawyers in the ongoing Russia probe, including President Donald Trump's legal team, that they're no longer able to share information.",
               "default_action": {
                 "type":"web_url",
-                "url": "http://www.businessinsider.com/texas-church-gunman-devin-patrick-gun-law-felon-domestic-violence-2017-11?r=UK&IR=T"
+                "url": "http://www.cnn.com/2017/11/23/politics/michael-flynn-donald-trump-robert-mueller-new-york-times/index.html"
               }
             },
 
             {
-              "title":"Moderate Right: Repealing the 2nd Amendment Won’t Make Gun Bans Any Easier",
-              "image_url":"https://s-i.huffpost.com/gen/4665060/images/o-DONALD-TRUMP-GUN-facebook.jpg",
-              "subtitle":"If you strip away legal protections for rights valued by millions of Americans, you’re just going to make them angry to no good end.",
+              "title":"Business: Justice Department Sues to Block AT&T-Time Warner Merger",
+              "image_url":"https://static01.nyt.com/images/2017/11/16/business/16ATT1/merlin_126367256_9dae289a-25bb-4515-b492-6d88e020d906-master768.jpg",
+              "subtitle":"The deal for Time Warner is designed to help AT&T counter slowing growth in its core wireless, internet and satellite businesses while fending off online video upstarts like Netflix and Hulu.",
               "default_action": {
                 "type":"web_url",
-                "url": "http://reason.com/archives/2017/10/10/repealing-the-2nd-amendment-wont-make-gu"
+                "url": "https://www.nytimes.com/2017/11/20/business/dealbook/att-time-warner-merger.html"
               }
             },
             {
-              "title":"Far Right: Conway: Politicizing the TX Church Shooting Doesn't Help the Victims & Disrespects the Dead",
-              "image_url":"http://i2.cdn.turner.com/money/dam/assets/170203095515-kellyanne-conway-780x439.jpg",
-              "subtitle":"Conway said that playing politics in the immediate aftermath of a tragedy is 'so beyond any type of reasonable response'… She said the rush to judgment doesn't help the victims, and it's disrespectful to the dead.",
+              "title":"Technology: FCC chief plans to ditch U.S. 'net neutrality' rules",
+              "image_url":"https://media.npr.org/assets/img/2017/11/22/gettyimages-698650254-86556145b9021dd4439c4e7db5f7397281deec52-s1200.jpg",
+              "subtitle":"The head of the U.S. Federal Communications Commission unveiled plans on Tuesday to repeal landmark 2015 rules that prohibited internet service providers from impeding consumer access to web content in a move that promises to recast the digital landscape.",
               "default_action": {
                 "type":"web_url",
-                "url": "http://insider.foxnews.com/2017/11/06/kellyanne-conway-texas-church-shooting-left-politicizing-tragedy"
+                "url": "https://www.reuters.com/article/us-usa-internet-exclusive/fcc-chief-plans-to-ditch-u-s-net-neutrality-rules-idUSKBN1DL21A"
               }
             }
 
