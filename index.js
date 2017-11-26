@@ -354,18 +354,18 @@ function handleMessage(sender_psid, received_message) {
                 "buttons": [
                   {
                     "type": "postback",
-                    "title": "Button 1",
-                    "payload": "button1"
+                    "title" : newsTopics[0],
+                    "payload" : newsTopics[0]
                   },
                   {
                     "type": "postback",
-                    "title": "Button 2",
-                    "payload": "button2"
+                    "title" : newsTopics[1],
+                    "payload" : newsTopics[1]
                   },
                   {
                     "type": "postback",
-                    "title": "Button 3",
-                    "payload": "button3"
+                    "title" : newsTopics[2],
+                    "payload" : newsTopics[2]
                   }
                 ]
               },
@@ -374,18 +374,18 @@ function handleMessage(sender_psid, received_message) {
                 "buttons": [
                   {
                     "type": "postback",
-                    "title": "Button 4",
-                    "payload": "button4"
+                    "title" : newsTopics[3],
+                    "payload" : newsTopics[3]
                   },
                   {
                     "type": "postback",
-                    "title": "Button 5",
-                    "payload": "button5"
+                    "title" : newsTopics[4],
+                    "payload" : newsTopics[4]
                   },
                   {
                     "type": "postback",
-                    "title": "Button 6",
-                    "payload": "button6"
+                    "title" : newsTopics[5],
+                    "payload" : newsTopics[5]
                   }
                 ]
               }
