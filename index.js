@@ -299,7 +299,7 @@ function callSendAPI(sender_psid, response) {
 function handleMessage(sender_psid, received_message) {
 
   let response;
-  let newsTopics = ["Gun Control", "White House", "Health Care"];
+  let newsTopics = ["Latest News", "U.S.", "International", "Politics", "Business", "Technology"]
   // Checks if the message contains text
       console.log("goes through handle message")
 
@@ -321,8 +321,8 @@ function handleMessage(sender_psid, received_message) {
               "buttons":[
                 {
                   "type" : "postback",
-                  "title" : "Gun Control",
-                  "payload" : "Gun Control"
+                  "title" : newsTopics[0],
+                  "payload" : newsTopics[0]
                 },
                 {
                   "type" : "postback",
@@ -333,7 +333,22 @@ function handleMessage(sender_psid, received_message) {
                   "type" : "postback",
                   "title" : newsTopics[2],
                   "payload" : newsTopics[2]
-                }
+                },
+                {
+                  "type" : "postback",
+                  "title" : newsTopics[3],
+                  "payload" : newsTopics[3]
+                },
+                {
+                  "type" : "postback",
+                  "title" : newsTopics[4],
+                  "payload" : newsTopics[4]
+                },
+                {
+                  "type" : "postback",
+                  "title" : newsTopics[5],
+                  "payload" : newsTopics[5]
+                },
               ]
           }
 
