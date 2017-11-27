@@ -370,7 +370,16 @@ function handlePostback(sender_psid, received_postback) {
                 "type":"web_url",
                 "url": "https://www.cnbc.com/2017/11/25/black-friday-boosts-battered-department-stores-on-thanksgiving-weekend.html"
               }
-            }
+            },
+
+              "buttons":
+    [
+      {
+        "type":"web_url",
+        "url":"https://petersfancybrownhats.com",
+        "title":"View Website"
+      }
+    ]
             ]
         }
         //
