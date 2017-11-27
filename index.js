@@ -416,7 +416,7 @@ function handlePostback(sender_psid, received_postback) {
                   "title": "View",
                   "type": "web_url",
                   "url": "https://peterssendreceiveapp.ngrok.io/collection",
-                  "messenger_extensions": true,
+                  // "messenger_extensions": true,
                   "webview_height_ratio": "tall",
                   "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                 }
