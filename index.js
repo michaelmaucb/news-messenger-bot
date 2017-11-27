@@ -12,9 +12,9 @@ const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
-// Creates the endpoint for our webhook 
-app.post('/webhook', (req, res) => {  
- 
+// Creates the endpoint for our webhook
+app.post('/webhook', (req, res) => {
+
   let body = req.body;
 
   // Checks this is an event from a page subscription
@@ -31,83 +31,25 @@ app.post('/webhook', (req, res) => {
             handleMessage(event.sender.id, event.message);
           } else {
             console.log(event)
-            if(event.postback && event.postback.payload === "GET_STARTED")
-            {
-                    //present user with some greeting or call to action
-                    var msg = "Hello! Welcome to the News-Flash-Bot!\n Type the command 'News' to get started."
-                    // console.log(msg)
-                    let response;
-                    response = {
-                      "text": msg
-                    }
-                    console.log(event.sender.id);
-                    callSendAPI(event.sender.id, response);
+            if(event.postback && event.postback.payload === "GET_STARTED") {
+              //present user with some greeting or call to action
+              var msg = "Hello! Welcome to the News-Flash-Bot!\n Type the command 'News' to get started."
+              // console.log(msg)
+              let response;
+              response = {
+                "text": msg
+              }
+              console.log(event.sender.id);
+              callSendAPI(event.sender.id, response);
 
-                    // let newResponse;
-                    // newResponse = {
-                    
-                    //     "text" : "Press news!",
-                    //     "quick_replies":[
-                    //       {
-                    //         "content_type":"text",
-                    //         "title":"News",
-                    //         "payload":"News"
-                    //       }
-                    //     ]
-                    // }
-                    //   console.log("new response")
-
-                    // callSendAPI(event.sender.id, newResponse);
-                    // console.log("new response")
-
-      
-            }
-            else if (event.postback) {
+            } else if (event.postback) {
               handlePostback(event.sender.id, event.postback);
             }
           }
         });
       } else {
-        // console.log(entry)
-        // console.log("david choi")
-        // var msg = "Hi ,I'm a Bot ,and I was created to help you easily .... "
-        // handleMessage(entry.id, msg)
-
+        // TODO: is this else case necessary?
       }
-
-      // // Gets the body of the webhook event
-      // console.log(entry)
-      // console.log("____________________")
-      // console.log(entry.messaging)
-      // console.log("____________________")
-      // console.log(entry.messaging[0])
-
-      // let webhook_event = entry.messaging[0];
-      // console.log(webhook_event);
-
-      // // Get the sender PSID
-      // // console.log(entry)
-      // // console.log(webhook_event.sender)
-
-      // if (webhook_event.message) {
-      //   console.log(webhook_event)
-      //   if (webhook_event.message == 'TEST_MESSAGE') {
-      //     return
-      //   }
-      //   let sender_psid = webhook_event.sender.id;
-      //   console.log('Sender PSID: ' + sender_psid);
-
-      //   handleMessage(sender_psid, webhook_event.message);        
-      // } else if (webhook_event.postback) {
-      //   handlePostback(sender_psid, webhook_event.postback);
-      // } else {
-      //   if(event.postback && event.postback.payload === USER_DEFINED_PAYLOAD ){
-      //           //present user with some greeting or call to action
-      //     var msg = "Hi, I'm a News-Flash-Bot"
-      //     // handleMessage(sender_psid,msg);
-      //   } 
-      // }
-
     });
 
     // Returns a '200 OK' response to all requests
@@ -124,125 +66,34 @@ app.get('/webhook/', (req, res) => {
 
   // Your verify token. Should be a random string.
   let VERIFY_TOKEN = "news"
-    
+
   // Parse the query params
   let mode = req.query['hub.mode'];
   let token = req.query['hub.verify_token'];
   let challenge = req.query['hub.challenge'];
-    
+
   // Checks if a token and mode is in the query string of the request
   if (mode && token) {
-  
+
     // Checks the mode and token sent is correct
     if (mode === 'subscribe' && token === VERIFY_TOKEN) {
-      
+
       // Responds with the challenge token from the request
       console.log('WEBHOOK_VERIFIED');
       res.status(200).send(challenge);
-    
+
     } else {
       // Responds with '403 Forbidden' if verify tokens do not match
-      res.sendStatus(403);      
+      res.sendStatus(403);
     }
   }
 });
 
+
 app.get('/setup',function(req,res){
     setupGetStartedButton(res);
-    // setupPersistentMenu(res);
-    // setupGreetingText(res);
 });
 
-// function setupGreetingText(res){
-//   var messageData = {
-//       "greeting":[
-//           {
-//           "locale":"default",
-//           "text":"Welcome to the News Flash Bot!"
-//           }, {
-//           "locale":"en_US",
-//           "text":"Welcome to the News Flash Bot!"
-//           }
-//       ]};
-//   request({
-//       url: 'https://graph.facebook.com/v2.6/me/messenger_profile?access_token='+ PAGE_ACCESS_TOKEN,
-//       method: 'POST',
-//       headers: {'Content-Type': 'application/json'},
-//       form: messageData
-//   },
-//   function (error, response, body) {
-//       if (!error && response.statusCode == 200) {
-//           // Print out the response body
-//           console.log("Success")
-//           res.send(body);
-
-//       } else { 
-//           // TODO: Handle errors
-//           console.log("Fail")
-
-//           res.send(body);
-//           // console.log("Fail")
-
-//       }
-//   });
-
-// }
-
-// function setupPersistentMenu(res){
-//   var messageData = 
-//       {"persistent_menu":[
-//           {
-//           "locale":"default",
-//           "composer_input_disabled":true,
-//           "call_to_actions":[
-//               {
-//               "title":"Info",
-//               "type":"nested",
-//               "call_to_actions":[
-//                   {
-//                   "title":"Help",
-//                   "type":"postback",
-//                   "payload":"HELP_PAYLOAD"
-//                   },
-//                   {
-//                   "title":"Contact Me",
-//                   "type":"postback",
-//                   "payload":"CONTACT_INFO_PAYLOAD"
-//                   }
-//               ]
-//               },
-//               {
-//               "type":"web_url",
-//               "title":"Visit website ",
-//               "url":"http://www.facebook.com",
-//               "webview_height_ratio":"full"
-//               }
-//           ]
-//           },
-//           {
-//           "locale":"zh_CN",
-//           "composer_input_disabled":false
-//           }
-//       ]};  
-//   // Start the request
-//   request({
-//       url: "https://graph.facebook.com/v2.6/me/messenger_profile?access_token="+ PAGE_ACCESS_TOKEN,
-//       method: 'POST',
-//       headers: {'Content-Type': 'application/json'},
-//       form: messageData
-//   },
-//   function (error, response, body) {
-//       if (!error && response.statusCode == 200) {
-//           // Print out the response body
-//           res.send(body);
-
-//       } else { 
-//           // TODO: Handle errors
-//           res.send(body);
-//       }
-//   });
-
-// }
 
 function setupGetStartedButton(res){
   var messageData = {
@@ -262,12 +113,13 @@ function setupGetStartedButton(res){
           // Print out the response body
           res.send(body);
 
-      } else { 
+      } else {
           // TODO: Handle errors
           res.send(body);
       }
   });
 }
+
 
 function callSendAPI(sender_psid, response) {
   // Construct the message body
@@ -291,9 +143,8 @@ function callSendAPI(sender_psid, response) {
     } else {
       console.error("Unable to send message:" + err);
     }
-  }); 
+  });
 }
-
 
 
 function handleMessage(sender_psid, received_message) {
@@ -301,100 +152,67 @@ function handleMessage(sender_psid, received_message) {
   let response;
   let newsTopics = ["Latest News", "U.S.", "International", "Politics", "Business", "Technology"]
   // Checks if the message contains text
-      console.log("goes through handle message")
+  console.log("goes through handle message")
 
-     //handle news functionality
-    console.log("_________________________________")
+  //handle news functionality
+  console.log("_________________________________")
 
-     console.log(received_message)
-         console.log("_________________________________")
+  console.log(received_message)
+  console.log("_________________________________")
 
-    if (received_message.text == 'News') {
-      console.log("goes through news")
+  if (received_message.text == 'News') {
+    console.log("goes through news")
 
-      response = {
-        // "attachment" : {
-        //   "type" : "template",
-        //   "payload" : {
-        //       "template_type":"button",
-        //       "text":"To get started, choose a news topic you'd like to explore.",
-        //       "buttons":[
-        //         {
-        //           "type" : "postback",
-        //           "title" : newsTopics[0],
-        //           "payload" : newsTopics[0]
-        //         },
-        //         {
-        //           "type" : "postback",
-        //           "title" : newsTopics[1],
-        //           "payload" : newsTopics[1]
-        //         },
-        //         {
-        //           "type" : "postback",
-        //           "title" : newsTopics[2],
-        //           "payload" : newsTopics[2]
-        //         },
-        //         {
-        //           "type" : "postback",
-        //           "title" : newsTopics[3],
-        //           "payload" : newsTopics[3]
-        //         },
-        //       ]
-        //   }
-
-        // }
-
-        "attachment": {
-          "type": "template",
-          "payload": {
-            "template_type": "generic",
-            "elements": [
-              {
-                "title": "Swipe left/right for more options.",
-                "buttons": [
-                  {
-                    "type": "postback",
-                    "title" : newsTopics[0],
-                    "payload" : newsTopics[0]
-                  },
-                  {
-                    "type": "postback",
-                    "title" : newsTopics[1],
-                    "payload" : newsTopics[1]
-                  },
-                  {
-                    "type": "postback",
-                    "title" : newsTopics[2],
-                    "payload" : newsTopics[2]
-                  }
-                ]
-              },
-              {
-                "title": "Swipe left/right for more options.",
-                "buttons": [
-                  {
-                    "type": "postback",
-                    "title" : newsTopics[3],
-                    "payload" : newsTopics[3]
-                  },
-                  {
-                    "type": "postback",
-                    "title" : newsTopics[4],
-                    "payload" : newsTopics[4]
-                  },
-                  {
-                    "type": "postback",
-                    "title" : newsTopics[5],
-                    "payload" : newsTopics[5]
-                  }
-                ]
-              }
-            ]
-          }
+    response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [
+            {
+              "title": "Swipe left/right for more options.",
+              "buttons": [
+                {
+                  "type": "postback",
+                  "title" : newsTopics[0],
+                  "payload" : newsTopics[0]
+                },
+                {
+                  "type": "postback",
+                  "title" : newsTopics[1],
+                  "payload" : newsTopics[1]
+                },
+                {
+                  "type": "postback",
+                  "title" : newsTopics[2],
+                  "payload" : newsTopics[2]
+                }
+              ]
+            },
+            {
+              "title": "Swipe left/right for more options.",
+              "buttons": [
+                {
+                  "type": "postback",
+                  "title" : newsTopics[3],
+                  "payload" : newsTopics[3]
+                },
+                {
+                  "type": "postback",
+                  "title" : newsTopics[4],
+                  "payload" : newsTopics[4]
+                },
+                {
+                  "type": "postback",
+                  "title" : newsTopics[5],
+                  "payload" : newsTopics[5]
+                }
+              ]
+            }
+          ]
         }
-
       }
-
+    }
 
   } else if (received_message.text == "Gun Control") {
     console.log("Gun control payload entered");
@@ -414,45 +232,20 @@ function handleMessage(sender_psid, received_message) {
                 "url": "https://www.dailykos.com/stories/2017/10/17/1707563/-New-study-finds-that-waiting-periods-for-gun-ownership-could-save-a-lot-of-lives"
               }
             }
-
-            // },
-            // {
-            //   "title":
-
-            // },
-            // {
-
-            // },
-            // {
-
-            // },
-            // {
-
-            // }
-
-
           ]
         }
-      
       }
-
     }
     console.log("Gun control payload entered");
-  }
-
-
-
-  else if (received_message.attachments) {
-  
+  } else if (received_message.attachments) {
     // Gets the URL of the message attachment
     let attachment_url = received_message.attachments[0].payload.url;
-  
-  } 
-  
-  // Sends the response message
-  callSendAPI(sender_psid, response);    
-}
 
+  }
+
+  // Sends the response message
+  callSendAPI(sender_psid, response);
+}
 
 
 function handlePostback(sender_psid, received_postback) {
@@ -460,7 +253,7 @@ function handlePostback(sender_psid, received_postback) {
   // let newsTopics = ["Gun Control", "White House", "Health Care"];
   let newsTopics = ["Latest News", "U.S.", "International", "Politics", "Business", "Technology"]
 
-  
+
   // Get the payload for the postback
   let payload = received_postback.payload;
   console.log(payload);
@@ -528,13 +321,9 @@ function handlePostback(sender_psid, received_postback) {
         }
       }
 
-
     }
     console.log("Gun control payload entered");
   }
-
-
-
 
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
