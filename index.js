@@ -186,7 +186,7 @@ function handleMessage(sender_psid, received_message) {
   console.log("REICEIVED MESSAGE:" + received_message)
   console.log("_________________________________")
 
-  if (received_message.text != "" && received_message.text.toLocaleLowerCase() == 'news') {
+  if (received_message.text == 'news') {
     console.log("goes through news")
 
     response = {
