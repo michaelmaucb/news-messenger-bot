@@ -404,7 +404,7 @@ function handlePostback(sender_psid, received_postback) {
         "type": "template",
 
         "payload": {
-          "template_type": "generic",
+          "template_type": "list",
           "elements": [
             {
               "title": "Welcome to Peter\'s Hats",
