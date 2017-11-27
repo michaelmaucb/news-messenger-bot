@@ -46,7 +46,7 @@ app.post('/webhook', (req, res) => {
                     "template_type": "generic",
                     "elements": [
                       {
-                        "title": "Hello! Welcome to the News-Flash-Bot!\n How often would you like to receive digests?",
+                        "title": "Welcome to the News-Flash-Bot!\n How often would you like to receive digests?",
                         "buttons": [
                           {
                             "type": "postback",
@@ -269,7 +269,7 @@ function handleMessage(sender_psid, received_message) {
     let attachment_url = received_message.attachments[0].payload.url;
 
   } else if (received_message.text == "9:30 AM") {
-
+    console.log("ENTERED THE TIME ZONE")
     response = {
       "text": "Perfect! News Flash Bot will message you every day at 9:30 AM. To continue browsing news today, simply type the command 'News'."
     }
