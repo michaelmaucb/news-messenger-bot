@@ -404,7 +404,7 @@ function handlePostback(sender_psid, received_postback) {
         "type": "template",
 
         "payload": {
-          "template_type": "list",
+          // "template_type": "list",
 
           "elements": [
             {
