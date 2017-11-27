@@ -371,6 +371,7 @@ function handlePostback(sender_psid, received_postback) {
                 "url": "https://www.cnbc.com/2017/11/25/black-friday-boosts-battered-department-stores-on-thanksgiving-weekend.html"
               }
             }
+            ]
         }
         //
         //     {
