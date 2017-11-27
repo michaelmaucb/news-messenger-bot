@@ -365,12 +365,12 @@ function handlePostback(sender_psid, received_postback) {
             {
 
 
-              "title":"Despite skeptical public, GOP pushing ahead on tax-cut plan",
-              "image_url":"https://img.washingtonpost.com/rf/image_1484w/2010-2019/Wires/Videos/201711/Reuters/Images/t_1510873085563_name_ryan.jpg?uuid=5v3cBMshEee1BooQ7RHs9Q",
-              "subtitle":"The Republican tax plan gets through the House of Representatives but could face an uphill battle when the Senate considers its own bill. Andy Sullivan reports.",
+              "title": "Trump to discuss tax plan with Senate Republicans next week: senator",
+              "image_url":"https://s3.reutersmedia.net/resources/r/?m=02&d=20171124&t=2&i=1211110331&r=LYNXMPEDAN14Q&w=1280",
+              "subtitle":"U.S. Senator John Barrasso said in a statement that Trump will meet with Republican senators at their weekly luncheon at the U.S. Capitol on Tuesday.",
               "default_action": {
                 "type":"web_url",
-                "url": "https://www.washingtonpost.com/powerpost/despite-skeptical-public-gop-pushing-ahead-on-tax-cut-plan/2017/11/25/d81ddd7c-d145-11e7-81bc-c55a220c8cbe_story.html?utm_term=.72bacd043fee"
+                "url": "https://www.reuters.com/article/us-usa-tax/trump-to-discuss-tax-plan-with-senate-republicans-next-week-senator-idUSKBN1DO1X6"
               },
               "buttons":[
                 {
@@ -410,12 +410,12 @@ function handlePostback(sender_psid, received_postback) {
 
           "elements": [
             {
-              "title": "Welcome to Peter\'s Hats",
-              "image_url": "https://petersfancybrownhats.com/company_image.png",
-              "subtitle": "We\'ve got the right hat for everyone.",
-              "default_action": {
-                "type": "web_url",
-                "url": "https://peterssendreceiveapp.ngrok.io/view?item=103"
+                "title":"Despite skeptical public, GOP pushing ahead on tax-cut plan",
+                "image_url":"https://img.washingtonpost.com/rf/image_1484w/2010-2019/Wires/Videos/201711/Reuters/Images/t_1510873085563_name_ryan.jpg?uuid=5v3cBMshEee1BooQ7RHs9Q",
+                "subtitle":"Moderate Left",
+                "default_action": {
+                  "type":"web_url",
+                  "url": "https://www.washingtonpost.com/powerpost/despite-skeptical-public-gop-pushing-ahead-on-tax-cut-plan/2017/11/25/d81ddd7c-d145-11e7-81bc-c55a220c8cbe_story.html?utm_term=.72bacd043fee"
 
               }
 
