@@ -422,12 +422,12 @@ function handlePostback(sender_psid, received_postback) {
             },
 
             {
-              "title": "Welcome to Peter\'s Hats",
-              "image_url": "https://petersfancybrownhats.com/company_image.png",
-              "subtitle": "We\'ve got the right hat for everyone.",
+              "title": "Trump to visit GOP Senate in push to deliver tax 'Christmas present' to Americans",
+              "image_url": "http://www.mootmagazine.com/wp-content/uploads/2017/04/trumptax.jpg",
+              "subtitle": "Far Right",
               "default_action": {
                 "type": "web_url",
-                "url": "https://peterssendreceiveapp.ngrok.io/view?item=103"
+                "url": "http://www.foxnews.com/politics/2017/11/25/trump-to-visit-gop-senate-in-push-to-deliver-tax-christmas-present-to-americans.html"
 
               }
 
