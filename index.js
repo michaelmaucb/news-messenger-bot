@@ -358,30 +358,54 @@ function handlePostback(sender_psid, received_postback) {
     response = {
       "attachment":{
         "type":"template",
+        //
+        // "payload":{
+        //   "template_type":"generic",
+        //   "elements":[
+        //     {
+        //       "title":"Despite skeptical public, GOP pushing ahead on tax-cut plan",
+        //       "image_url":"https://img.washingtonpost.com/rf/image_1484w/2010-2019/Wires/Videos/201711/Reuters/Images/t_1510873085563_name_ryan.jpg?uuid=5v3cBMshEee1BooQ7RHs9Q",
+        //       "subtitle":"The Republican tax plan gets through the House of Representatives but could face an uphill battle when the Senate considers its own bill. Andy Sullivan reports. (Reuters)",
+        //       "default_action": {
+        //         "type":"web_url",
+        //         "url": "https://www.cnbc.com/2017/11/25/black-friday-boosts-battered-department-stores-on-thanksgiving-weekend.html"
+        //       }
+        //     }
+        //     ]
+        // }
 
         "payload":{
           "template_type":"generic",
           "elements":[
             {
-              "title":"Despite skeptical public, GOP pushing ahead on tax-cut plan",
-              "image_url":"https://img.washingtonpost.com/rf/image_1484w/2010-2019/Wires/Videos/201711/Reuters/Images/t_1510873085563_name_ryan.jpg?uuid=5v3cBMshEee1BooQ7RHs9Q",
-              "subtitle":"The Republican tax plan gets through the House of Representatives but could face an uphill battle when the Senate considers its own bill. Andy Sullivan reports. (Reuters)",
+              "title":"Welcome to Peter\'s Hats",
+              "image_url":"https://petersfancybrownhats.com/company_image.png",
+              "subtitle":"We\'ve got the right hat for everyone.",
               "default_action": {
-                "type":"web_url",
-                "url": "https://www.cnbc.com/2017/11/25/black-friday-boosts-battered-department-stores-on-thanksgiving-weekend.html"
-              }
-            },
-
-              "buttons":
-    [
-      {
-        "type":"web_url",
-        "url":"https://petersfancybrownhats.com",
-        "title":"View Website"
-      }
-    ]
-            ]
+                "type": "web_url",
+                "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
+                "messenger_extensions": true,
+                "webview_height_ratio": "tall",
+                "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+              },
+              "buttons":[
+                {
+                  "type":"web_url",
+                  "url":"https://petersfancybrownhats.com",
+                  "title":"View Website"
+                },{
+                  "type":"postback",
+                  "title":"Start Chatting",
+                  "payload":"DEVELOPER_DEFINED_PAYLOAD"
+                }
+              ]
+            }
+          ]
         }
+
+
+
+
         //
         //     {
         //       "title":"International: Egypt attack: Gunmen kill 235 in Sinai mosque",
