@@ -268,7 +268,7 @@ function handleMessage(sender_psid, received_message) {
     // Gets the URL of the message attachment
     let attachment_url = received_message.attachments[0].payload.url;
 
-  } else if (received_message.test == "9:30") {
+  } else if (received_message.text == "9:30 AM") {
 
     response = {
       "text": "Perfect! News Flash Bot will message you every day at 9:30 AM.\n To continue browsing news today, simply type the command 'News'."
