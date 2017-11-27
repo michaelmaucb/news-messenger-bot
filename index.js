@@ -405,22 +405,22 @@ function handlePostback(sender_psid, received_postback) {
 
         "payload": {
           "template_type": "list",
-          // "top_element_style": "compact",
+
           "elements": [
             {
-              "title": "Classic T-Shirt Collection",
-              "subtitle": "See all our colors",
-              "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png"
+              "title": "Welcome to Peter\'s Hats",
+              "image_url": "https://petersfancybrownhats.com/company_image.png",
+              "subtitle": "We\'ve got the right hat for everyone.",
+              "default_action": {
+                "type": "web_url",
+                "url": "https://peterssendreceiveapp.ngrok.io/view?item=103"
+
+              }
 
             }
           ]
+
         }
-
-
-
-
-
-
       }
     }
   }
