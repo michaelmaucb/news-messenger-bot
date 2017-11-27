@@ -183,7 +183,7 @@ function handleMessage(sender_psid, received_message) {
   //handle news functionality
   console.log("_________________________________")
 
-  console.log(received_message)
+  console.log("REICEIVED MESSAGE:" + received_message)
   console.log("_________________________________")
 
   if (received_message.text.toLocaleLowerCase() == 'news') {
