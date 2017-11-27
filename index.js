@@ -405,6 +405,9 @@ function handlePostback(sender_psid, received_postback) {
 
         "payload": {
           "template_type": "list",
+          "top_element_style": "compact",
+
+
           "elements": [
             {
               "title": "Welcome to Peter\'s Hats",
@@ -416,7 +419,21 @@ function handlePostback(sender_psid, received_postback) {
 
               }
 
+            },
+
+            {
+              "title": "Welcome to Peter\'s Hats",
+              "image_url": "https://petersfancybrownhats.com/company_image.png",
+              "subtitle": "We\'ve got the right hat for everyone.",
+              "default_action": {
+                "type": "web_url",
+                "url": "https://peterssendreceiveapp.ngrok.io/view?item=103"
+
+              }
+
             }
+
+
           ]
 
         }
