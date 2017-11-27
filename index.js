@@ -211,7 +211,27 @@ function handleMessage(sender_psid, received_message) {
             }
           ]
         }
-      }
+      },
+
+
+      //trying quick replies
+      "quick_replies":[
+        {
+          "content_type":"text",
+          "title":"Search",
+          "payload":"<POSTBACK_PAYLOAD>",
+          "image_url":"http://example.com/img/red.png"
+        },
+        {
+          "content_type":"location"
+        },
+        {
+          "content_type":"text",
+          "title":"Something Else",
+          "payload":"<POSTBACK_PAYLOAD>"
+        }
+      ]
+
     }
 
   } else if (received_message.text == "Gun Control") {
