@@ -358,21 +358,6 @@ function handlePostback(sender_psid, received_postback) {
     response = {
       "attachment":{
         "type":"template",
-        //
-        // "payload":{
-        //   "template_type":"generic",
-        //   "elements":[
-        //     {
-        //       "title":"Despite skeptical public, GOP pushing ahead on tax-cut plan",
-        //       "image_url":"https://img.washingtonpost.com/rf/image_1484w/2010-2019/Wires/Videos/201711/Reuters/Images/t_1510873085563_name_ryan.jpg?uuid=5v3cBMshEee1BooQ7RHs9Q",
-        //       "subtitle":"The Republican tax plan gets through the House of Representatives but could face an uphill battle when the Senate considers its own bill. Andy Sullivan reports. (Reuters)",
-        //       "default_action": {
-        //         "type":"web_url",
-        //         "url": "https://www.cnbc.com/2017/11/25/black-friday-boosts-battered-department-stores-on-thanksgiving-weekend.html"
-        //       }
-        //     }
-        //     ]
-        // }
 
         "payload":{
           "template_type":"generic",
@@ -390,60 +375,7 @@ function handlePostback(sender_psid, received_postback) {
                 {
                   "type":"postback",
                   "title":"Start Chatting",
-                  "payload":
-                  {
-      "template_type":"generic",
-          "elements":[
-        {
-          "title":"U.S.: Black Friday boosts battered department stores, some of which are claiming a 'record' weekend",
-          "image_url":"https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2014/11/12/102178715-452436613.530x298.jpg?v=1476720910",
-          "subtitle":"Department stores overall appear to have fared well on Black Friday, kicking off the holiday shopping season on a high note.",
-          "default_action": {
-            "type":"web_url",
-            "url": "https://www.cnbc.com/2017/11/25/black-friday-boosts-battered-department-stores-on-thanksgiving-weekend.html"
-          }
-        },
-
-        {
-          "title":"International: Egypt attack: Gunmen kill 235 in Sinai mosque",
-          "image_url":"https://ichef.bbci.co.uk/news/695/cpsprodpb/B1ED/production/_98894554_mediaitem98894553.jpg",
-          "subtitle":"Militants have launched a bomb and gun attack on a mosque in Egypt's North Sinai province, killing 235 people, state media say.",
-          "default_action": {
-            "type":"web_url",
-            "url": "http://www.bbc.com/news/world-middle-east-42110223"
-          }
-        },
-
-        {
-          "title":"Politics: Flynn's lawyers no longer sharing information with Trump's legal team",
-          "image_url":"http://cdn.cnn.com/cnnnext/dam/assets/161117201720-02-michael-flynn-1117-exlarge-169.jpg",
-          "subtitle":"Michael Flynn's lawyers have told other defense lawyers in the ongoing Russia probe, including President Donald Trump's legal team, that they're no longer able to share information.",
-          "default_action": {
-            "type":"web_url",
-            "url": "http://www.cnn.com/2017/11/23/politics/michael-flynn-donald-trump-robert-mueller-new-york-times/index.html"
-          }
-        },
-
-        {
-          "title":"Business: Justice Department Sues to Block AT&T-Time Warner Merger",
-          "image_url":"https://static01.nyt.com/images/2017/11/16/business/16ATT1/merlin_126367256_9dae289a-25bb-4515-b492-6d88e020d906-master768.jpg",
-          "subtitle":"The deal for Time Warner is designed to help AT&T counter slowing growth in its core wireless, internet and satellite businesses while fending off online video upstarts like Netflix and Hulu.",
-          "default_action": {
-            "type":"web_url",
-            "url": "https://www.nytimes.com/2017/11/20/business/dealbook/att-time-warner-merger.html"
-          }
-        },
-        {
-          "title":"Technology: FCC chief plans to ditch U.S. 'net neutrality' rules",
-          "image_url":"https://media.npr.org/assets/img/2017/11/22/gettyimages-698650254-86556145b9021dd4439c4e7db5f7397281deec52-s1200.jpg",
-          "subtitle":"The head of the U.S. Federal Communications Commission unveiled plans on Tuesday to repeal landmark 2015 rules that prohibited internet service providers from impeding consumer access to web content in a move that promises to recast the digital landscape.",
-          "default_action": {
-            "type":"web_url",
-            "url": "https://www.reuters.com/article/us-usa-internet-exclusive/fcc-chief-plans-to-ditch-u-s-net-neutrality-rules-idUSKBN1DL21A"
-          }
-        }
-      ]
-    }
+                  "payload":"POLITICS_TAX_PAYLOAD"
                 }
 
               ]
@@ -468,38 +400,9 @@ function handlePostback(sender_psid, received_postback) {
               ]
             }
 
-
-
-
           ]
         }
 
-
-
-
-        //
-        //     {
-        //       "title":"International: Egypt attack: Gunmen kill 235 in Sinai mosque",
-        //       "image_url":"https://ichef.bbci.co.uk/news/695/cpsprodpb/B1ED/production/_98894554_mediaitem98894553.jpg",
-        //       "subtitle":"Militants have launched a bomb and gun attack on a mosque in Egypt's North Sinai province, killing 235 people, state media say.",
-        //       "default_action": {
-        //         "type":"web_url",
-        //         "url": "http://www.bbc.com/news/world-middle-east-42110223"
-        //       }
-        //     },
-        //
-        //     {
-        //       "title":"Politics: Flynn's lawyers no longer sharing information with Trump's legal team",
-        //       "image_url":"http://cdn.cnn.com/cnnnext/dam/assets/161117201720-02-michael-flynn-1117-exlarge-169.jpg",
-        //       "subtitle":"Michael Flynn's lawyers have told other defense lawyers in the ongoing Russia probe, including President Donald Trump's legal team, that they're no longer able to share information.",
-        //       "default_action": {
-        //         "type":"web_url",
-        //         "url": "http://www.cnn.com/2017/11/23/politics/michael-flynn-donald-trump-robert-mueller-new-york-times/index.html"
-        //       }
-        //     }
-        //
-        //   ]
-        // }
       }
     }
 
@@ -511,7 +414,32 @@ function handlePostback(sender_psid, received_postback) {
       response = {
         "text": "What time would you like to receive messages? Type your response in the format '--:-- AM/PM'."
       }
-  }
+  } else if (payload == "POLITICS_TAX_PAYLOAD") {
+
+
+    response = {
+      "attachment": {
+        "type": "template",
+
+        "payload": {
+          "template_type": "generic",
+          "elements": [
+            {
+              "title": "Welcome to Peter\'s Hats",
+              "image_url": "https://petersfancybrownhats.com/company_image.png",
+              "subtitle": "We\'ve got the right hat for everyone.",
+              "default_action": {
+                "type": "web_url",
+                "url": "https://peterssendreceiveapp.ngrok.io/view?item=103"
+
+              }
+
+            }
+          ]
+
+        }
+      }
+    }
 
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
