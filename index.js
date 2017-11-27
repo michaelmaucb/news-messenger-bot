@@ -363,18 +363,19 @@ function handlePostback(sender_psid, received_postback) {
           "template_type":"generic",
           "elements":[
             {
-              "title":"Welcome to Peter\'s Hats",
-              "image_url":"https://petersfancybrownhats.com/company_image.png",
-              "subtitle":"We\'ve got the right hat for everyone.",
-              "default_action": {
-                "type": "web_url",
-                "url": "https://peterssendreceiveapp.ngrok.io/view?item=103"
 
+
+              "title":"Despite skeptical public, GOP pushing ahead on tax-cut plan",
+              "image_url":"https://img.washingtonpost.com/rf/image_1484w/2010-2019/Wires/Videos/201711/Reuters/Images/t_1510873085563_name_ryan.jpg?uuid=5v3cBMshEee1BooQ7RHs9Q",
+              "subtitle":"The Republican tax plan gets through the House of Representatives but could face an uphill battle when the Senate considers its own bill. Andy Sullivan reports.",
+              "default_action": {
+                "type":"web_url",
+                "url": "https://www.washingtonpost.com/powerpost/despite-skeptical-public-gop-pushing-ahead-on-tax-cut-plan/2017/11/25/d81ddd7c-d145-11e7-81bc-c55a220c8cbe_story.html?utm_term=.72bacd043fee"
               },
               "buttons":[
                 {
                   "type":"postback",
-                  "title":"Start Chatting",
+                  "title":"View the Sides",
                   "payload":"POLITICS_TAX_PAYLOAD"
                 }
 
