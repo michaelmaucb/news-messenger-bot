@@ -186,7 +186,7 @@ function handleMessage(sender_psid, received_message) {
   console.log(received_message)
   console.log("_________________________________")
 
-  if (received_message.text == 'News') {
+  if (received_message.text.toLocaleLowerCase() == 'news') {
     console.log("goes through news")
 
     response = {
@@ -200,18 +200,18 @@ function handleMessage(sender_psid, received_message) {
               "buttons": [
                 {
                   "type": "postback",
-                  "title" : newsTopics[0],
-                  "payload" : newsTopics[0]
+                  "title": newsTopics[0],
+                  "payload": newsTopics[0]
                 },
                 {
                   "type": "postback",
-                  "title" : newsTopics[1],
-                  "payload" : newsTopics[1]
+                  "title": newsTopics[1],
+                  "payload": newsTopics[1]
                 },
                 {
                   "type": "postback",
-                  "title" : newsTopics[2],
-                  "payload" : newsTopics[2]
+                  "title": newsTopics[2],
+                  "payload": newsTopics[2]
                 }
               ]
             },
@@ -220,18 +220,18 @@ function handleMessage(sender_psid, received_message) {
               "buttons": [
                 {
                   "type": "postback",
-                  "title" : newsTopics[3],
-                  "payload" : newsTopics[3]
+                  "title": newsTopics[3],
+                  "payload": newsTopics[3]
                 },
                 {
                   "type": "postback",
-                  "title" : newsTopics[4],
-                  "payload" : newsTopics[4]
+                  "title": newsTopics[4],
+                  "payload": newsTopics[4]
                 },
                 {
                   "type": "postback",
-                  "title" : newsTopics[5],
-                  "payload" : newsTopics[5]
+                  "title": newsTopics[5],
+                  "payload": newsTopics[5]
                 }
               ]
             }
@@ -239,6 +239,7 @@ function handleMessage(sender_psid, received_message) {
         }
       }
     }
+
 
   } else if (received_message.text == "Gun Control") {
     console.log("Gun control payload entered");
@@ -349,7 +350,29 @@ function handlePostback(sender_psid, received_postback) {
             }
           ]
         }
-      }
+      },
+
+
+
+      //trying quick replies
+      "quick_replies":[
+        {
+          "content_type":"text",
+          "title":"Search",
+          "payload":"<POSTBACK_PAYLOAD>"
+          // "image_url":"http://example.com/img/red.png"
+        },
+        {
+          "content_type":"location"
+        },
+        {
+          "content_type":"text",
+          "title":"Something Else",
+          "payload":"<POSTBACK_PAYLOAD>"
+        }
+      ]
+
+    }
 
     }
     console.log("Gun control payload entered");
