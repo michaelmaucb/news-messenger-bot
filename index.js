@@ -38,7 +38,7 @@ app.post('/webhook', (req, res) => {
               // response = {
               //   "text": msg
               // }
-
+              let response;
               response = {
                 "attachment": {
                   "type": "template",
@@ -353,16 +353,12 @@ function handlePostback(sender_psid, received_postback) {
       }
     }
     console.log("Gun control payload entered");
-  }
-    // handle subscription postback
-    else if (payload == "Daily") {
-      var msg = "What time would you like to receive messages? Type your response in the format '--:-- AM/PM'."
-
-      let response;
+  } else if (payload == "Daily") {
+      // handle subscription postback
       response = {
-        "text": msg
+        "text": "What time would you like to receive messages? Type your response in the format '--:-- AM/PM'."
       }
-    }
+  }
 
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
