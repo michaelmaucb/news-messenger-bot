@@ -25,7 +25,6 @@ app.post('/webhook', (req, res) => {
 
       if (entry.messaging) {
         entry.messaging.forEach(function(event) {
-          // console.log("jay is cool")
           if (event.message) {
             console.log("sending messages :)")
             handleMessage(event.sender.id, event.message);
@@ -33,12 +32,39 @@ app.post('/webhook', (req, res) => {
             console.log(event)
             if(event.postback && event.postback.payload === "GET_STARTED") {
               //present user with some greeting or call to action
-              var msg = "Hello! Welcome to the News-Flash-Bot!\n Type the command 'News' to get started."
-              // console.log(msg)
-              let response;
+              // var msg = "Hello! Welcome to the News-Flash-Bot!\n Type the command 'News' to get started."
+              //
+              // let response;
+              // response = {
+              //   "text": msg
+              // }
+
               response = {
-                "text": msg
+                "attachment": {
+                  "type": "template",
+                  "payload": {
+                    "template_type": "generic",
+                    "elements": [
+                      {
+                        "title": "Hello! Welcome to the News-Flash-Bot!\n How often would you like to receive digests?",
+                        "buttons": [
+                          {
+                            "type": "postback",
+                            "title" : "Daily",
+                            "payload" : "Daily"
+                          },
+                          {
+                            "type": "postback",
+                            "title" : "Weekly",
+                            "payload" : "Weekly"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
               }
+
               console.log(event.sender.id);
               callSendAPI(event.sender.id, response);
 
@@ -160,7 +186,7 @@ function handleMessage(sender_psid, received_message) {
   console.log(received_message)
   console.log("_________________________________")
 
-  if (received_message.text == 'News') {
+  if (received_message.text.toLocaleLowerCase() == 'news') {
     console.log("goes through news")
 
     response = {
@@ -174,18 +200,18 @@ function handleMessage(sender_psid, received_message) {
               "buttons": [
                 {
                   "type": "postback",
-                  "title" : newsTopics[0],
-                  "payload" : newsTopics[0]
+                  "title": newsTopics[0],
+                  "payload": newsTopics[0]
                 },
                 {
                   "type": "postback",
-                  "title" : newsTopics[1],
-                  "payload" : newsTopics[1]
+                  "title": newsTopics[1],
+                  "payload": newsTopics[1]
                 },
                 {
                   "type": "postback",
-                  "title" : newsTopics[2],
-                  "payload" : newsTopics[2]
+                  "title": newsTopics[2],
+                  "payload": newsTopics[2]
                 }
               ]
             },
@@ -194,18 +220,18 @@ function handleMessage(sender_psid, received_message) {
               "buttons": [
                 {
                   "type": "postback",
-                  "title" : newsTopics[3],
-                  "payload" : newsTopics[3]
+                  "title": newsTopics[3],
+                  "payload": newsTopics[3]
                 },
                 {
                   "type": "postback",
-                  "title" : newsTopics[4],
-                  "payload" : newsTopics[4]
+                  "title": newsTopics[4],
+                  "payload": newsTopics[4]
                 },
                 {
                   "type": "postback",
-                  "title" : newsTopics[5],
-                  "payload" : newsTopics[5]
+                  "title": newsTopics[5],
+                  "payload": newsTopics[5]
                 }
               ]
             }
@@ -213,6 +239,7 @@ function handleMessage(sender_psid, received_message) {
         }
       }
     }
+
 
   } else if (received_message.text == "Gun Control") {
     console.log("Gun control payload entered");
@@ -241,6 +268,11 @@ function handleMessage(sender_psid, received_message) {
     // Gets the URL of the message attachment
     let attachment_url = received_message.attachments[0].payload.url;
 
+  } else if (received_message.test == "9:30") {
+
+    response = {
+      "text": "Perfect! News Flash Bot will message you every day at 9:30 AM.\n To continue browsing news today, simply type the command 'News'."
+    }
   }
 
   // Sends the response message
@@ -250,7 +282,6 @@ function handleMessage(sender_psid, received_message) {
 
 function handlePostback(sender_psid, received_postback) {
   let response;
-  // let newsTopics = ["Gun Control", "White House", "Health Care"];
   let newsTopics = ["Latest News", "U.S.", "International", "Politics", "Business", "Technology"]
 
 
@@ -320,10 +351,18 @@ function handlePostback(sender_psid, received_postback) {
           ]
         }
       }
-
     }
     console.log("Gun control payload entered");
   }
+    // handle subscription postback
+    else if (payload == "Daily") {
+      var msg = "What time would you like to receive messages? Type your response in the format '--:-- AM/PM'."
+
+      let response;
+      response = {
+        "text": msg
+      }
+    }
 
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
